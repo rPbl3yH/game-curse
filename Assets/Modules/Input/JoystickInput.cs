@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 namespace Modules.Input
 {
-    public sealed class JoystickInput 
+    public sealed class JoystickInput : MonoBehaviour
     {
         private const int MOUSE_BUTTON = 0;
         private const float MIN_MAGNITUDE = 0.05f;
