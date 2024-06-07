@@ -7,7 +7,9 @@ namespace Game.Scripts
 {
     public class CatPoint : MonoBehaviour
     {
-        [SerializeField] private List<CatPoint> _catPoints;
+        [SerializeField] private Transform _startPoint;
+        [SerializeField] private Transform _finishPoint;
+        
         [SerializeField] private Character _character;
         [SerializeField] private float _radius =2f;
         [SerializeField] private Cat _catPrefab;
@@ -16,7 +18,7 @@ namespace Game.Scripts
 
         private void Update()
         {
-            var distance = Vector3.Distance(_character.GetPosition(),transform.position);
+            var distance = Vector3.Distance(_character.GetPosition(),_startPoint.position);
             
             if (distance <= _radius && !_isActivated)
             {
@@ -33,11 +35,7 @@ namespace Game.Scripts
 
         public void Activate()
         {
-            foreach (var catPoint in _catPoints)
-            {
-                LaunchCat(catPoint);
-            }
-
+            LaunchCat(_finishPoint.position);
             _isActivated = true;
         }
 
@@ -46,15 +44,15 @@ namespace Game.Scripts
             return transform.position;
         }
 
-        private void LaunchCat(CatPoint catPoint)
+        private void LaunchCat(Vector3 position)
         {
-            var cat = Instantiate(_catPrefab, transform.position, Quaternion.identity);
-            cat.MoveToPosition(catPoint.GetPosition());
+            var cat = Instantiate(_catPrefab, _startPoint.position, Quaternion.identity);
+            cat.MoveToPosition(position);
         }
 
         private void OnDrawGizmosSelected()
         {
-            Handles.DrawWireDisc(transform.position, Vector3.up, _radius);
+            Handles.DrawWireDisc(_startPoint.position, Vector3.up, _radius);
         }
     }
 }
