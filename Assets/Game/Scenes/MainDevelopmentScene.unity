@@ -379,6 +379,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 236463389}
+  - component: {fileID: 236463390}
+  - component: {fileID: 236463391}
   m_Layer: 0
   m_Name: FinishPoint
   m_TagString: Untagged
@@ -401,6 +403,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 442022677}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &236463390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236463388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d8e40f275f2b4165ace049be3eadba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _catPoint: {fileID: 1557479002}
+  _rootPosition: {fileID: 236463389}
+  _catPrefab: {fileID: 7622970375475985342, guid: 6e2e2437b5bcb435eb6340888654bc89,
+    type: 3}
+  _distanceSensor: {fileID: 236463391}
+--- !u!114 &236463391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236463388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0052cafbd5b9423a861d4c0bb183bbc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 181343768}
+  _radius: 2
 --- !u!1 &286706121
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,7 +891,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 442022677}
-  - component: {fileID: 442022678}
   m_Layer: 0
   m_Name: CatWall
   m_TagString: Untagged
@@ -884,24 +916,6 @@ Transform:
   - {fileID: 236463389}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &442022678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 442022676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d8e40f275f2b4165ace049be3eadba1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startPoint: {fileID: 1557479001}
-  _finishPoint: {fileID: 236463389}
-  _character: {fileID: 181343767}
-  _radius: 4
-  _catPrefab: {fileID: 7622970375475985342, guid: 6e2e2437b5bcb435eb6340888654bc89,
-    type: 3}
 --- !u!1 &473929134
 GameObject:
   m_ObjectHideFlags: 0
@@ -1687,6 +1701,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1557479001}
+  - component: {fileID: 1557479002}
+  - component: {fileID: 1557479003}
   m_Layer: 0
   m_Name: StartPoint
   m_TagString: Untagged
@@ -1709,6 +1725,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 442022677}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1557479002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557479000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d8e40f275f2b4165ace049be3eadba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _catPoint: {fileID: 236463390}
+  _rootPosition: {fileID: 1557479001}
+  _catPrefab: {fileID: 7622970375475985342, guid: 6e2e2437b5bcb435eb6340888654bc89,
+    type: 3}
+  _distanceSensor: {fileID: 1557479003}
+--- !u!114 &1557479003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557479000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0052cafbd5b9423a861d4c0bb183bbc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 181343768}
+  _radius: 2
 --- !u!1 &1626720811
 GameObject:
   m_ObjectHideFlags: 0

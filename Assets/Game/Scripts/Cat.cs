@@ -9,11 +9,13 @@ namespace Game.Scripts
 
         private bool _isActivated;
         private Vector3 _targetPosition;
+        private Action _action;
         
-        public void MoveToPosition(Vector3 position)
+        public void MoveToPosition(Vector3 position, Action onComplete)
         {
             _targetPosition = position;
             _isActivated = true;
+            _action = onComplete;
         }
 
         private void Update()
@@ -26,6 +28,7 @@ namespace Game.Scripts
             var distance = Vector3.Distance(transform.position, _targetPosition);
             if (distance < Mathf.Epsilon)
             {
+                _action?.Invoke();
                 Destroy(gameObject);
                 return;
             }

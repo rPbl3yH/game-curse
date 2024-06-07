@@ -1,44 +1,38 @@
 using System;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 namespace Game.Scripts
 {
     public class CatPoint : MonoBehaviour
     {
-        [SerializeField] private Transform _startPoint;
-        [SerializeField] private Transform _finishPoint;
+        [SerializeField] private CatPoint _catPoint;
+        [SerializeField] private Transform _rootPosition;
         
-        [SerializeField] private Character _character;
-        [SerializeField] private float _radius =2f;
         [SerializeField] private Cat _catPrefab;
+        [SerializeField] private DistanceSensor _distanceSensor;
 
-        private bool _isActivated;
+        private bool _isCatActivated;
 
-        private void Update()
+        private void OnEnable()
         {
-            var distance = Vector3.Distance(_character.GetPosition(),_startPoint.position);
+            _distanceSensor.ObjectEntered += OnObjectEntered;
+        }
+
+        private void OnDisable()
+        {
+            _distanceSensor.ObjectExited -= OnObjectEntered;
+        }
+
+        private void OnObjectEntered()
+        {
+            if (_isCatActivated)
+            {
+                return;
+            }
             
-            if (distance <= _radius && !_isActivated)
-            {
-                Activate();
-                Debug.Log("Activate");
-            }
-
-            if (distance > _radius && _isActivated)
-            {
-                _isActivated = false;
-                Debug.Log("Deactivate");
-            }
+            LaunchCat(_catPoint.GetPosition());
         }
-
-        public void Activate()
-        {
-            LaunchCat(_finishPoint.position);
-            _isActivated = true;
-        }
-
+        
         private Vector3 GetPosition()
         {
             return transform.position;
@@ -46,13 +40,14 @@ namespace Game.Scripts
 
         private void LaunchCat(Vector3 position)
         {
-            var cat = Instantiate(_catPrefab, _startPoint.position, Quaternion.identity);
-            cat.MoveToPosition(position);
+            var cat = Instantiate(_catPrefab, _rootPosition.position, Quaternion.identity);
+            cat.MoveToPosition(position, OnCatFinished);
+            _isCatActivated = true;
         }
 
-        private void OnDrawGizmosSelected()
+        private void OnCatFinished()
         {
-            Handles.DrawWireDisc(_startPoint.position, Vector3.up, _radius);
+            _isCatActivated = false;
         }
     }
 }
