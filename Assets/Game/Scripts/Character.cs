@@ -17,5 +17,10 @@ namespace Game.Scripts
             _characterController.Move(direction * _speed * Time.deltaTime);
             RotationComponent.Rotate(direction);
         }
+
+        public Vector3 GetPosition()
+        {
+            return transform.position;
+        }
     }
 }
