@@ -426,6 +426,7 @@ MonoBehaviour:
   _Animations:
   - {fileID: 7400000, guid: 41a69a2d41407418383279347debe012, type: 2}
   - {fileID: 7400000, guid: 215905e1e66c94a4a8e96fb26009c34a, type: 2}
+  - {fileID: 7400000, guid: 5823c6935f443471bbc53f5ba20643a0, type: 2}
 --- !u!114 &181343772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -931,6 +932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6de5959fd34dfcb825653493c9580b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _character: {fileID: 181343767}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2293,38 +2295,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1727014624}
   m_CullTransparentMesh: 1
---- !u!1 &1784999626
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1784999627}
-  m_Layer: 0
-  m_Name: '[Audio]'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1784999627
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1784999626}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1813697234}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1813697233
 GameObject:
   m_ObjectHideFlags: 0
@@ -2337,7 +2307,7 @@ GameObject:
   - component: {fileID: 1813697235}
   - component: {fileID: 1813697236}
   m_Layer: 0
-  m_Name: AudioManager
+  m_Name: '[Audio]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2351,14 +2321,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1813697233}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 311717915}
   - {fileID: 684131601}
-  m_Father: {fileID: 1784999627}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1813697235
 MonoBehaviour:
@@ -2669,7 +2639,7 @@ PrefabInstance:
     - target: {fileID: 7573948645837712713, guid: a8155d5ca4a0d47a096a72da35cc3355,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 7573948645837712713, guid: a8155d5ca4a0d47a096a72da35cc3355,
         type: 3}
@@ -2731,4 +2701,4 @@ SceneRoots:
   - {fileID: 5100590993033815044}
   - {fileID: 511911660}
   - {fileID: 906184280}
-  - {fileID: 1784999627}
+  - {fileID: 1813697234}
