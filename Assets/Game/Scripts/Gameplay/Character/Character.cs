@@ -1,4 +1,5 @@
 using System;
+using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -15,9 +16,22 @@ namespace Game.Scripts
 
         private Vector3 _direction;
         
+        [ShowInInspector, ReadOnly]
+        private bool _isDead;
+
+        public event Action<Vector3> VelocityChanged;
+        public event Action DeathEvent;
+        
         public void Move(Vector3 direction)
         {
+            if (_isDead)
+            {
+                return;
+            }
+            
             _characterController.Move(direction * _speed * Time.deltaTime);
+            VelocityChanged?.Invoke(_characterController.velocity);
+            
             RotationComponent.Rotate(direction);
         }
 
@@ -31,9 +45,10 @@ namespace Game.Scripts
             return _characterController.velocity;
         }
 
-        public void Stop()
+        public void Death()
         {
-            _characterController.Move(Vector3.zero);
+            DeathEvent?.Invoke();
+            _isDead = true;
         }
     }
 }

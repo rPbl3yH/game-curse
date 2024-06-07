@@ -22,7 +22,7 @@ namespace Game.Scripts
 
         private void JoystickInputOnCanceled(Vector2 direction)
         {
-            _character.Stop();
+            _character.Move(Vector3.zero);
         }
 
         private void JoystickInputOnDirectionMoved(Vector2 direction)

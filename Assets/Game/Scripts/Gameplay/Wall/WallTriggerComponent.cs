@@ -4,7 +4,7 @@ using Zenject;
 
 namespace Game.Scripts
 {
-    public class Wall : MonoBehaviour
+    public class WallTriggerComponent : MonoBehaviour
     {
         private TriggerListener _triggerListener;
         
