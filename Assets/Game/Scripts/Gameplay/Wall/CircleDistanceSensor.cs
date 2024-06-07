@@ -5,17 +5,17 @@ using UnityEngine;
 
 namespace Game.Scripts
 {
-    public class DistanceSensor : MonoBehaviour
+    public class CircleDistanceSensor : MonoBehaviour
     {
-        public event Action ObjectEntered; 
-        public event Action ObjectExited; 
-    
         [SerializeField]
         private Transform _target;
         [SerializeField]
         private float _radius = 5f; 
         [ShowInInspector, ReadOnly]
         private bool _isInsideRadius = false; 
+        
+        public event Action TargetEntered; 
+        public event Action TargetExited; 
     
         void Update()
         {
@@ -29,12 +29,12 @@ namespace Game.Scripts
 
             if (!_isInsideRadius && distanceToTarget <= _radius)
             {
-                ObjectEntered?.Invoke();
+                TargetEntered?.Invoke();
                 _isInsideRadius = true;
             }
             else if (_isInsideRadius && distanceToTarget > _radius)
             {
-                ObjectExited?.Invoke();
+                TargetExited?.Invoke();
                 _isInsideRadius = false;
             }
         }
@@ -47,3 +47,4 @@ namespace Game.Scripts
         }
     }
 }
+

@@ -6,7 +6,9 @@ namespace Game.Scripts
 {
     public class Wall : MonoBehaviour
     {
+        
         private TriggerListener _triggerListener;
+        
         
         [Inject]
         public void Construct(TriggerListener triggerListener)
