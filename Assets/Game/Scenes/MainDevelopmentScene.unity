@@ -155,6 +155,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterController: {fileID: 181343769}
   _speed: 3
+  RotationComponent:
+    _rotationRoot: {fileID: 1995038955}
+    _rotateDirection: {x: 0, y: 0, z: 0}
+    _rotateRate: 0.3
+    _canRotate: 1
 --- !u!4 &181343768
 Transform:
   m_ObjectHideFlags: 0
@@ -168,7 +173,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1326415484}
+  - {fileID: 1995038955}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &181343769
@@ -774,13 +779,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1326415483}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1232841303}
-  m_Father: {fileID: 181343768}
+  m_Father: {fileID: 1995038955}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1326415486
 MeshRenderer:
@@ -969,7 +974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 1844318212}
   _target: {fileID: 181343768}
-  _followRate: 0.5
+  _followRate: 1
 --- !u!4 &1844318212
 Transform:
   m_ObjectHideFlags: 0
@@ -985,6 +990,38 @@ Transform:
   m_Children:
   - {fileID: 330585546}
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1995038954
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1995038955}
+  m_Layer: 0
+  m_Name: Visual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1995038955
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995038954}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1326415484}
+  m_Father: {fileID: 181343768}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
