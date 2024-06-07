@@ -11,11 +11,18 @@ namespace Game.Scripts
         private void OnEnable()
         {
             _joystickInput.DirectionMoved += JoystickInputOnDirectionMoved;
+            _joystickInput.PositionEnded += JoystickInputOnCanceled;
         }
 
         private void OnDisable()
         {
             _joystickInput.DirectionMoved -= JoystickInputOnDirectionMoved;
+            _joystickInput.PositionEnded -= JoystickInputOnCanceled;
+        }
+
+        private void JoystickInputOnCanceled(Vector2 direction)
+        {
+            _character.Stop();
         }
 
         private void JoystickInputOnDirectionMoved(Vector2 direction)
