@@ -29,7 +29,9 @@ namespace Game.Scripts
 
         private void Start()
         {
-            waggingVector = transform.right;
+            waggingVector = (_targetPosition - transform.position).normalized;
+            waggingVector = new Vector3(waggingVector.z, 0, -waggingVector.x);
+
 
             // Случайно задаём 0 или PI (влево или вправо) как начальное значение
             waggingPos = Mathf.Round(UnityEngine.Random.Range(0, 1)) * Mathf.PI;
