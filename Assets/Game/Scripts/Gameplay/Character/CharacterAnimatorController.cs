@@ -10,6 +10,7 @@ namespace Game.Scripts
     public class CharacterAnimatorController : MonoBehaviour
     {
         [Inject] private MenuService _menuService;
+        [Inject] private GameAudioConfig _gameAudioConfig;
         [SerializeField] private Character _character;
         [SerializeField] private AnimancerComponent _animancerComponent;
         
@@ -58,6 +59,7 @@ namespace Game.Scripts
         private void Callback()
         {
             _state.Events.endEvent.callback -= Callback;
+            AudioManager.Instance.PlaySound(_gameAudioConfig.LevelLose);
             _menuService.ShowMenu(MenuType.Lose);
         }
 

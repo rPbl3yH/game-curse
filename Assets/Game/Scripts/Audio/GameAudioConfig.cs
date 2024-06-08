@@ -6,6 +6,17 @@ namespace Game
     public class GameAudioConfig : ScriptableObject
     {
         public AudioClip Step;
-        public AudioClip Step2;
+        public AudioClip CatVoice;
+
+        [Header("Level")]
+        public AudioClip LevelStarted;
+        public AudioClip LevelWin;
+        public AudioClip PlayerDeathLose;
+        public AudioClip LevelLose;
+
+        [Header("DeathEffect")]
+        public AudioClip BallFallClip;
+        public AudioClip ThunderboltClip;
+        public AudioClip BrickFallClip;
     }
 }

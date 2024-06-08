@@ -14,6 +14,10 @@ namespace Game.Scripts
         
         private MenuService _menuService;
         private GameManager _gameManager;
+
+        public event Action LevelLost;
+        public event Action LevelStarted;
+        public event Action LevelCompleted;
         
         [Inject]
         public void Construct(GameManager gameManager, MenuService menuService)
@@ -38,10 +42,19 @@ namespace Game.Scripts
             Debug.Log("Start Game");
             _menuService.HideMenu();
             _gameManager.StartGame();
+            
+            LevelStarted?.Invoke();
+        }
+
+        public void WinGame()
+        {
+            LevelCompleted?.Invoke();
+            _gameManager.FinishGame();
         }
         
         public void LoseGame()
         {
+            LevelLost?.Invoke();
             Debug.Log("Lose game");
             _gameManager.FinishGame();
         }
