@@ -3,6 +3,7 @@ using DG.Tweening;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
+using Zenject;
 using Random = UnityEngine.Random;
 
 namespace Game.Scripts.Gameplay
@@ -16,6 +17,14 @@ namespace Game.Scripts.Gameplay
         [SerializeField] private Transform _visualRoot;
         [SerializeField] private FallingPhysicsComponent _fallingPhysicsComponent;
 
+        private GameAudioConfig _gameAudioConfig;
+        
+        [Inject]
+        public void Construct(GameAudioConfig gameAudioConfig)
+        {
+            _gameAudioConfig = gameAudioConfig;
+        }
+        
         private void Start()
         {
             _fallingPhysicsComponent.Deactivate();
@@ -30,6 +39,7 @@ namespace Game.Scripts.Gameplay
             var randomOffset = new Vector3(Random.Range(-5f, 5f), 0f, 0f);
             var startPosition = _ball.position + randomOffset;
             
+            AudioManager.Instance.PlaySound(_gameAudioConfig.BallFallClip);
             _ball.DOMove(_endPoint.position, _tweenStat.Duration)
                 .From(startPosition)
                 .SetLink(gameObject)

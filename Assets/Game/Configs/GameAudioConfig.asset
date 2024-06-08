@@ -13,4 +13,11 @@ MonoBehaviour:
   m_Name: GameAudioConfig
   m_EditorClassIdentifier: 
   Step: {fileID: 8300000, guid: 06076a64109fe4c319c3ddc97b59f1fe, type: 3}
-  Step2: {fileID: 8300000, guid: 4ca2cf7cf7d50463c8b2af28c40aafda, type: 3}
+  CatVoice: {fileID: 8300000, guid: 06076a64109fe4c319c3ddc97b59f1fe, type: 3}
+  LevelStarted: {fileID: 8300000, guid: 06076a64109fe4c319c3ddc97b59f1fe, type: 3}
+  LevelWin: {fileID: 8300000, guid: 06076a64109fe4c319c3ddc97b59f1fe, type: 3}
+  LevelLose: {fileID: 8300000, guid: 06076a64109fe4c319c3ddc97b59f1fe, type: 3}
+  BallFallClip: {fileID: 8300000, guid: 06076a64109fe4c319c3ddc97b59f1fe, type: 3}
+  ThunderboltClip: {fileID: 8300000, guid: 06076a64109fe4c319c3ddc97b59f1fe, type: 3}
+  BrickFallClip: {fileID: 8300000, guid: 06076a64109fe4c319c3ddc97b59f1fe, type: 3}
+  MainTheme: {fileID: 8300000, guid: 06076a64109fe4c319c3ddc97b59f1fe, type: 3}
