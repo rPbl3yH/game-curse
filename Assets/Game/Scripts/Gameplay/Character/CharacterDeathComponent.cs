@@ -9,7 +9,7 @@ namespace Game.Scripts
 
         [SerializeField] private int _debugAnimationIndex = -1;
 
-        public int StartDeath()
+        public void StartDeath(out int deathIndex)
         {
             var index = Random.Range(0, _characterDeaths.Length);
             
@@ -17,8 +17,9 @@ namespace Game.Scripts
             {
                 index = _debugAnimationIndex;
             }
+
+            deathIndex = index;
             _characterDeaths[index].Show();
-            return index;
         }
     }
 }

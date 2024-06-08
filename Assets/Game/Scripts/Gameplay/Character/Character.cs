@@ -49,11 +49,13 @@ namespace Game.Scripts
             return _characterController.velocity;
         }
 
+        [Button]
         public void Death()
         {
-            _deathIndex = _deathComponent.StartDeath();
             _isDead = true;
             DeathRequest?.Invoke();
+            _deathComponent.StartDeath(out _deathIndex);
+            print($"Death index = {_deathIndex}");
         }
 
         public void OnFinishedHit()

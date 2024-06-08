@@ -13,13 +13,13 @@ namespace Game.Scripts
         [SerializeField] private Character _character;
         [SerializeField] private AnimancerComponent _animancerComponent;
         
-        private static readonly string StandingDeath = "StandingDeath";
-        private static readonly string ShockedDeath = "ShockedDeath";
-        private static readonly string FlyingDeath = "FlyingDeath";
-        private static readonly string HappyIdle = "HappyIdle";
-        private static readonly string Walking = "Walking";
+        private static readonly object StandingDeath = "StandingDeath";
+        private static readonly object ShockedDeath = "ShockedDeath";
+        private static readonly object FlyingDeath = "FlyingDeath";
+        private static readonly object HappyIdle = "HappyIdle";
+        private static readonly object Walking = "Walking";
 
-        private readonly string[] _deathKeys = {
+        private readonly object[] _deathKeys = {
             StandingDeath,
             ShockedDeath,
             FlyingDeath,
@@ -48,6 +48,7 @@ namespace Game.Scripts
 
         private void OnDeathEvent(int index)
         {
+            print($"Death event index = {index}");
             var key = _deathKeys[index];
             
             _state = _animancerComponent.Play(key);
