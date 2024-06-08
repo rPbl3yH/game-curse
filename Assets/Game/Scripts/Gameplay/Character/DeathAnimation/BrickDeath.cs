@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Game.Scripts.Gameplay
 {
-    public class BrickDeath : MonoBehaviour
+    public class BrickDeath : BaseCharacterDeath
     {
         [SerializeField] private Character _character;
         [SerializeField] private Transform _finishPoint;
@@ -23,7 +23,7 @@ namespace Game.Scripts.Gameplay
         }
 
         [Button]
-        public void Show()
+        public override void Show()
         {
             gameObject.SetActive(true);
             transform.DOMove(_finishPoint.position, _tweenStat.Duration)
@@ -45,7 +45,7 @@ namespace Game.Scripts.Gameplay
             _rigidbody.AddRelativeForce(randomVector * _force);
             _rigidbody.AddRelativeTorque(randomVector * _torgue);
 
-            _character.OnBrickHit();
+            _character.OnFinishedHit();
         }
     }
 }

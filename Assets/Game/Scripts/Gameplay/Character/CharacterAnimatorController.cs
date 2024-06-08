@@ -13,10 +13,18 @@ namespace Game.Scripts
         [SerializeField] private Character _character;
         [SerializeField] private AnimancerComponent _animancerComponent;
         
-        private static readonly object StandingDeath = "StandingDeath";
-        private static readonly object HappyIdle = "HappyIdle";
-        private static readonly object Walking = "Walking";
+        private static readonly string StandingDeath = "StandingDeath";
+        private static readonly string ShockedDeath = "ShockedDeath";
+        private static readonly string FlyingDeath = "FlyingDeath";
+        private static readonly string HappyIdle = "HappyIdle";
+        private static readonly string Walking = "Walking";
 
+        private readonly string[] _deathKeys = {
+            StandingDeath,
+            ShockedDeath,
+            FlyingDeath,
+        };
+        
         private AnimancerState _state;
 
         private void OnEnable()
@@ -40,7 +48,9 @@ namespace Game.Scripts
 
         private void OnDeathEvent(int index)
         {
-            _state = _animancerComponent.Play(StandingDeath);
+            var key = _deathKeys[index];
+            
+            _state = _animancerComponent.Play(key);
             _state.Events.endEvent.callback += Callback;
         }
 

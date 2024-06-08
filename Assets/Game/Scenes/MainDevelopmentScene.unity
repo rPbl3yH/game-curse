@@ -530,6 +530,7 @@ MonoBehaviour:
     Easing: 1
   _rigidbody: {fileID: 118362003}
   _force: 100
+  _torgue: 10
 --- !u!54 &118362003
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -653,7 +654,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 2
-  m_Radius: 0.5
+  m_Radius: 0.1
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -3543,6 +3544,7 @@ MonoBehaviour:
   - {fileID: 7400000, guid: 41a69a2d41407418383279347debe012, type: 2}
   - {fileID: 7400000, guid: 215905e1e66c94a4a8e96fb26009c34a, type: 2}
   - {fileID: 7400000, guid: 5823c6935f443471bbc53f5ba20643a0, type: 2}
+  - {fileID: 7400000, guid: 3b4c01cbe839c46159031406c1cb7af7, type: 2}
 --- !u!114 &1995038957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3569,7 +3571,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d2f967e3e544e0869ca535f8839748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _brickDeath: {fileID: 118362002}
+  _characterDeaths:
+  - {fileID: 118362002}
+  _debugAnimationIndex: -1
 --- !u!1 &2010759588
 GameObject:
   m_ObjectHideFlags: 0

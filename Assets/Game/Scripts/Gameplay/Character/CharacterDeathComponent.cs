@@ -5,11 +5,20 @@ namespace Game.Scripts
 {
     public class CharacterDeathComponent : MonoBehaviour
     {
-        [SerializeField] private BrickDeath _brickDeath;
+        [SerializeField] private BaseCharacterDeath[] _characterDeaths;
 
-        public void StartDeath()
+        [SerializeField] private int _debugAnimationIndex = -1;
+
+        public int StartDeath()
         {
-            _brickDeath.Show();
+            var index = Random.Range(0, _characterDeaths.Length);
+            
+            if (_debugAnimationIndex != -1)
+            {
+                index = _debugAnimationIndex;
+            }
+            _characterDeaths[index].Show();
+            return index;
         }
     }
 }

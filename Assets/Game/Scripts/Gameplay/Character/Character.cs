@@ -20,6 +20,8 @@ namespace Game.Scripts
         [ShowInInspector, ReadOnly]
         private bool _isDead;
 
+        private int _deathIndex;
+
         public event Action<Vector3> VelocityChanged;
         public event Action DeathRequest;
         public event Action<int> DeathEvent;
@@ -49,14 +51,14 @@ namespace Game.Scripts
 
         public void Death()
         {
-            _deathComponent.StartDeath();
+            _deathIndex = _deathComponent.StartDeath();
             _isDead = true;
             DeathRequest?.Invoke();
         }
 
-        public void OnBrickHit()
+        public void OnFinishedHit()
         {
-            DeathEvent?.Invoke(0);
+            DeathEvent?.Invoke(_deathIndex);
         }
     }
 }
