@@ -12,7 +12,13 @@ namespace Game.Scripts
 
         Cat cat;
         private bool _isCatActivated;
-        
+
+        //private new Renderer renderer;
+
+        private void Start()
+        {
+            //renderer = _curseTrail.GetComponent<Renderer>();
+        }
         private Vector3 GetPosition()
         {
             return transform.position;
@@ -27,25 +33,25 @@ namespace Game.Scripts
             cat.MoveToPosition(position, OnCatFinished);
             _isCatActivated = true;
 
-            _curseTrail.DOComplete();
+            /*_curseTrail.DOComplete();
             _curseTrail.position = position;
-            //_curseTrail.GetComponent<Renderer>()?.material.DOFade(1, 3);
+            renderer?.material.DOFade(1, 3);*/
         }
 
         private void OnCatFinished()
         {
             _isCatActivated = false;
 
-            _curseTrail.DOScaleY(0, 3);
-            _curseTrail.DOLocalMoveZ(5f, 3);
-            //_curseTrail.GetComponent<Renderer>()?.material.DOFade(0, 1);
+            /*_curseTrail.DOLocalMoveZ(3f, 3);
+            _curseTrail.DOScaleY(_curseTrail.localScale.y+0.75f, 3);
+            renderer?.material.DOFade(0, 3);*/
         }
 
         private void Update()
         {
             if (!_isCatActivated)
                 return;
-
+           /*
             var dist = Vector3.Distance(_catSpawnPoint.position, cat.transform.position)-1.5f;
             if (dist < 0)
                 dist = 0;
@@ -62,6 +68,7 @@ namespace Game.Scripts
                     _curseTrail.localPosition.y,
                     dist/2
                 );
+           */
         }
     }
 }

@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 181343770}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -512,7 +512,7 @@ Transform:
   m_GameObject: {fileID: 181343766}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -942,13 +942,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.5169104, y: 0.013350269, z: -0.008062739, w: -0.8558975}
-  m_LocalPosition: {x: 0.1524851, y: 9.295769, z: -4.8865557}
+  m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
+  m_LocalPosition: {x: 1, y: 10, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1844318212}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1051,7 +1051,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6de5959fd34dfcb825653493c9580b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterController: {fileID: 907476222}
 --- !u!114 &392321684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1446,7 +1445,7 @@ Transform:
   m_GameObject: {fileID: 557462210}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 14.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1526,7 +1525,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.99706346
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -1781,11 +1780,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CatWall (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 6197056590867064937, guid: a8155d5ca4a0d47a096a72da35cc3355,
-        type: 3}
-      propertyPath: _targetTransform
-      value: 
-      objectReference: {fileID: 181343768}
     - target: {fileID: 7573948645837712713, guid: a8155d5ca4a0d47a096a72da35cc3355,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2385,11 +2379,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CatWall (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 6197056590867064937, guid: a8155d5ca4a0d47a096a72da35cc3355,
-        type: 3}
-      propertyPath: _targetTransform
-      value: 
-      objectReference: {fileID: 181343768}
     - target: {fileID: 7573948645837712713, guid: a8155d5ca4a0d47a096a72da35cc3355,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2464,21 +2453,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CatWall (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 6197056590867064937, guid: a8155d5ca4a0d47a096a72da35cc3355,
-        type: 3}
-      propertyPath: _rectangleSize.x
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6197056590867064937, guid: a8155d5ca4a0d47a096a72da35cc3355,
-        type: 3}
-      propertyPath: _rectangleSize.y
-      value: 1.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6197056590867064937, guid: a8155d5ca4a0d47a096a72da35cc3355,
-        type: 3}
-      propertyPath: _targetTransform
-      value: 
-      objectReference: {fileID: 181343768}
     - target: {fileID: 7573948645837712713, guid: a8155d5ca4a0d47a096a72da35cc3355,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2751,7 +2725,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.1, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1534975639}
@@ -3514,11 +3488,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CatWall
       objectReference: {fileID: 0}
-    - target: {fileID: 6197056590867064937, guid: a8155d5ca4a0d47a096a72da35cc3355,
-        type: 3}
-      propertyPath: _targetTransform
-      value: 
-      objectReference: {fileID: 181343768}
     - target: {fileID: 7573948645837712713, guid: a8155d5ca4a0d47a096a72da35cc3355,
         type: 3}
       propertyPath: m_LocalPosition.x

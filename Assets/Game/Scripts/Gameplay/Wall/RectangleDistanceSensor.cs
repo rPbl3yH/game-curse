@@ -8,15 +8,19 @@ namespace Game.Scripts.Gameplay.Wall
     public class RectangleDistanceSensor : MonoBehaviour
     {
         [SerializeField] private Transform _centerPoint;
-        [SerializeField] private Transform _targetTransform; 
         [SerializeField] private Vector2 _rectangleSize; 
 
         [ShowInInspector, ReadOnly]
         private bool _isInRectangle; 
 
         public event Action TargetEntered; 
-        public event Action TargetExited; 
+        public event Action TargetExited;
+        private Transform _targetTransform;
 
+        private void Start()
+        {
+            _targetTransform = FindObjectOfType<Character>().transform;
+        }
         void Update()
         {
             CheckPositionInRectangle();
