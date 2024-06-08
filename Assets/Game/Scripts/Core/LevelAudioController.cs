@@ -31,7 +31,7 @@ namespace Game.Scripts
 
         private void OnLevelLost()
         {
-            AudioManager.Instance.PlaySound(_gameAudioConfig.LevelLose);
+            AudioManager.Instance.PlaySound(_gameAudioConfig.PlayerDeathLose);
         }
 
         private void OnLevelCompleted()

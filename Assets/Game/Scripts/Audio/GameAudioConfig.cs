@@ -11,6 +11,7 @@ namespace Game
         [Header("Level")]
         public AudioClip LevelStarted;
         public AudioClip LevelWin;
+        public AudioClip PlayerDeathLose;
         public AudioClip LevelLose;
 
         [Header("DeathEffect")]
