@@ -14,7 +14,7 @@ namespace Game.Scripts
             _triggerListener = triggerListener;
         }
         
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerExit(Collider other)
         {
             _triggerListener.OnTrigger(other);
         }
