@@ -11,14 +11,11 @@ namespace Game.Scripts.Gameplay
         [SerializeField] private Character _character;
         [SerializeField] private Transform _finishPoint;
         [SerializeField] private BaseTweenStat _tweenStat;
-        [SerializeField] private Rigidbody _rigidbody;
-
-        [SerializeField] private float _force = 10f;
-        [SerializeField] private float _torgue = 10f;
-
+        [SerializeField] private FallingPhysicsComponent _fallingPhysicsComponent;
+        
         private void Start()
         {
-            _rigidbody.isKinematic = true;
+            _fallingPhysicsComponent.Deactivate();
             Hide();
         }
 
@@ -32,19 +29,15 @@ namespace Game.Scripts.Gameplay
                 .OnComplete(OnFinished);
         }
 
-        public void Hide()
+        private void Hide()
         {
             gameObject.SetActive(false);
         }
 
         private void OnFinished()
         {
-            _rigidbody.isKinematic = false;
-            var randomVector = Vector3Utils.GetRandomVector3(0f, 1f);
-            randomVector.y = 1f;
-            _rigidbody.AddRelativeForce(randomVector * _force);
-            _rigidbody.AddRelativeTorque(randomVector * _torgue);
-
+            _fallingPhysicsComponent.Activate();
+            _fallingPhysicsComponent.Fall();
             _character.OnFinishedHit();
         }
     }
