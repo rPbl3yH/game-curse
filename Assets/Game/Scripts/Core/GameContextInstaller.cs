@@ -4,7 +4,7 @@ using Zenject;
 
 namespace Game.Scripts
 {
-    public class GameInstaller : MonoInstaller
+    public class GameContextInstaller : MonoInstaller
     {
         public override void InstallBindings()
         {
@@ -13,8 +13,14 @@ namespace Game.Scripts
             Container.Bind<GameManager>().FromComponentInHierarchy().AsCached().NonLazy();
             Container.Bind<GameController>().FromComponentInHierarchy().AsCached().NonLazy();
             Container.Bind<TriggerListener>().AsCached().NonLazy();
+
+            Container.BindInterfacesAndSelfTo<CharacterInputController>()
+                .FromComponentInHierarchy().AsCached().NonLazy();
+            Container.BindInterfacesAndSelfTo<CharacterController>()
+                .FromComponentInHierarchy().AsCached().NonLazy();
         }
     }
+    
 
     public class UIInstaller : Installer<UIInstaller>
     {
