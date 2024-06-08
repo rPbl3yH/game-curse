@@ -14,6 +14,8 @@ namespace Game.Scripts
             Container.Bind<GameAudioConfig>().FromInstance(_gameAudioConfig).AsSingle().NonLazy();
             UIInstaller.Install(Container);
 
+            Container.Bind<CharacterService>().FromComponentInHierarchy().AsCached().NonLazy();
+
             Container.Bind<GameManager>().FromComponentInHierarchy().AsCached().NonLazy();
             Container.Bind<GameController>().FromComponentInHierarchy().AsCached().NonLazy();
             Container.Bind<TriggerListener>().AsCached().NonLazy();

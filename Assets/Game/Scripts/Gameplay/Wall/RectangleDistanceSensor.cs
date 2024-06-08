@@ -2,6 +2,7 @@ using System;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
+using Zenject;
 
 namespace Game.Scripts.Gameplay.Wall
 {
@@ -13,14 +14,17 @@ namespace Game.Scripts.Gameplay.Wall
         [ShowInInspector, ReadOnly]
         private bool _isInRectangle; 
 
-        public event Action TargetEntered; 
-        public event Action TargetExited;
         private Transform _targetTransform;
 
-        private void Start()
+        public event Action TargetEntered; 
+        public event Action TargetExited;
+
+        [Inject]
+        public void Construct(CharacterService characterService)
         {
-            _targetTransform = FindObjectOfType<Character>().transform;
+            _targetTransform = characterService.GetCharacter().transform;
         }
+        
         void Update()
         {
             CheckPositionInRectangle();
