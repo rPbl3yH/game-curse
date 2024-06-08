@@ -9,7 +9,6 @@ namespace Game.Scripts
 {
     public class GameController : MonoBehaviour
     {
-        [SerializeField] 
         private CharacterController _characterController;
         
         private MenuService _menuService;
@@ -24,6 +23,8 @@ namespace Game.Scripts
 
         private void Start()
         {
+            _characterController = FindObjectOfType<CharacterController>();
+
             PrepareGame();
         }
 

@@ -13,7 +13,13 @@ namespace Game.Scripts
 
         Cat cat;
         private bool _isCatActivated;
-        
+
+        //private new Renderer renderer;
+
+        private void Start()
+        {
+            //renderer = _curseTrail.GetComponent<Renderer>();
+        }
         private Vector3 GetPosition()
         {
             return transform.position;
