@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5747904799678872308}
   - component: {fileID: 7622970375475985342}
-  - component: {fileID: 2604539848650231046}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Untagged
@@ -48,33 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   catModelTransform: {fileID: 1426051562043968539}
-  _speed: 2
+  _speed: 5
   waggingLeftRightPosition: 0.3
-  waggingLeftRightRotation: 85
-  waggingRotationSmooth: 10
+  waggingLeftRightRotation: 0
   waggingSpeed: 4
   waggingSpeedRandomize: 0.4
---- !u!65 &2604539848650231046
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1534297831221524419}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.25, y: 0.25, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4905324307545006389
 GameObject:
   m_ObjectHideFlags: 0
