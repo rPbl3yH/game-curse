@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Lessons.Lesson_SectionAndVisuals
+namespace Game.Scripts.Gameplay
 {
     public class AnimatorDispatcher : MonoBehaviour
     {

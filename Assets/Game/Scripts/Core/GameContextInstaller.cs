@@ -17,7 +17,7 @@ namespace Game.Scripts
             Container.Bind<CharacterService>().FromComponentInHierarchy().AsCached().NonLazy();
 
             Container.Bind<GameManager>().FromComponentInHierarchy().AsCached().NonLazy();
-            Container.Bind<GameController>().FromComponentInHierarchy().AsCached().NonLazy();
+            Container.Bind<LevelController>().FromComponentInHierarchy().AsCached().NonLazy();
             Container.Bind<TriggerListener>().AsCached().NonLazy();
 
             Container.BindInterfacesAndSelfTo<CharacterInputController>()
