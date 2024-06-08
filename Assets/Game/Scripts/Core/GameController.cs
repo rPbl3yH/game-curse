@@ -1,3 +1,4 @@
+using System;
 using Modules.BaseUI;
 using Modules.GameManagement;
 using UnityEngine;
@@ -8,9 +9,9 @@ namespace Game.Scripts
 {
     public class GameController : MonoBehaviour
     {
-        [SerializeField]
-        private Character _character;
-
+        [SerializeField] 
+        private CharacterController _characterController;
+        
         private MenuService _menuService;
         private GameManager _gameManager;
         
@@ -20,12 +21,29 @@ namespace Game.Scripts
             _gameManager = gameManager;
             _menuService = menuService;
         }
+
+        private void Start()
+        {
+            PrepareGame();
+        }
+
+        private void PrepareGame()
+        {
+            _menuService.ShowMenu(MenuType.Main);
+            _characterController.Setup();
+        }
+
+        public void StartGame()
+        {
+            Debug.Log("Start Game");
+            _menuService.HideMenu();
+            _gameManager.StartGame();
+        }
         
         public void LoseGame()
         {
             Debug.Log("Lose game");
             _gameManager.FinishGame();
-            _character.Death();
             _menuService.ShowMenu(MenuType.Lose);
         }
 
