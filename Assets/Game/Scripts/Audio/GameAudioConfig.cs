@@ -18,5 +18,8 @@ namespace Game
         public AudioClip BallFallClip;
         public AudioClip ThunderboltClip;
         public AudioClip BrickFallClip;
+
+        [Header("UI")] 
+        public AudioClip ButtonClicked;
     }
 }

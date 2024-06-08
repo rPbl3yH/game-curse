@@ -30,7 +30,7 @@ namespace Modules.BaseUI
             _isInteractable = true;
         }
 
-        private void OnClicked()
+        protected virtual void OnClicked()
         {
             UserClicked?.Invoke();
             
