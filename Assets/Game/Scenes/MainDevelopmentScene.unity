@@ -476,9 +476,7 @@ GameObject:
   - component: {fileID: 181343768}
   - component: {fileID: 181343767}
   - component: {fileID: 181343769}
-  - component: {fileID: 181343771}
-  - component: {fileID: 181343772}
-  - component: {fileID: 181343773}
+  - component: {fileID: 181343770}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -547,7 +545,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &181343771
+--- !u!114 &181343770
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -556,42 +554,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 181343766}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c75c0dcb6d50eb64abd727a90406ca2b, type: 3}
+  m_Script: {fileID: 11500000, guid: e513d3d798af440bbd0c44906c4a67f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Animator: {fileID: 80927952}
-  _ActionOnDisable: 0
-  _PlayAutomatically: 1
-  _Animations:
-  - {fileID: 7400000, guid: 41a69a2d41407418383279347debe012, type: 2}
-  - {fileID: 7400000, guid: 215905e1e66c94a4a8e96fb26009c34a, type: 2}
-  - {fileID: 7400000, guid: 5823c6935f443471bbc53f5ba20643a0, type: 2}
---- !u!114 &181343772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 181343766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dff70413fb0e4ecbbc3d63f251221ab2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _character: {fileID: 181343767}
-  _animancerComponent: {fileID: 181343771}
---- !u!114 &181343773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 181343766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be38e796fe53f5a42a81cb55314f14bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _animatorDispatcher: {fileID: 618391702}
 --- !u!1 &216844353
 GameObject:
   m_ObjectHideFlags: 0
@@ -2618,6 +2584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875d41d7f13246d598f2c6cd97bb9fb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameAudioConfig: {fileID: 11400000, guid: a2749329f5c4d4e70978b0bae9b817e4, type: 2}
 --- !u!1 &1534975638
 GameObject:
   m_ObjectHideFlags: 0
@@ -2971,7 +2938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sfxSource: {fileID: 684131602}
-  _soundVolume: 0.4
+  _soundVolume: 0.209
   _musicSource: {fileID: 311717916}
   _musicVolume: 0.5
 --- !u!114 &1813697236
@@ -3180,6 +3147,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1995038955}
+  - component: {fileID: 1995038956}
+  - component: {fileID: 1995038957}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -3203,6 +3172,39 @@ Transform:
   - {fileID: 80927951}
   m_Father: {fileID: 181343768}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1995038956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995038954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c75c0dcb6d50eb64abd727a90406ca2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Animator: {fileID: 80927952}
+  _ActionOnDisable: 0
+  _PlayAutomatically: 1
+  _Animations:
+  - {fileID: 7400000, guid: 41a69a2d41407418383279347debe012, type: 2}
+  - {fileID: 7400000, guid: 215905e1e66c94a4a8e96fb26009c34a, type: 2}
+  - {fileID: 7400000, guid: 5823c6935f443471bbc53f5ba20643a0, type: 2}
+--- !u!114 &1995038957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995038954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dff70413fb0e4ecbbc3d63f251221ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _character: {fileID: 181343767}
+  _animancerComponent: {fileID: 1995038956}
 --- !u!1 &2010759588
 GameObject:
   m_ObjectHideFlags: 0
