@@ -10,6 +10,23 @@ namespace Game.Scripts
 
         [SerializeField] private Transform _finishPoint;
 
+        [SerializeField] private GameObject[] boxVariant;
+
+        private void Start()
+        {
+            Instantiate(
+                boxVariant[Random.Range(0, boxVariant.Length)],
+                _catSpawnPoint.transform.position, Quaternion.Euler(Vector3.zero),
+                _catSpawnPoint.transform
+            );
+
+            Instantiate(
+                boxVariant[Random.Range(0, boxVariant.Length)],
+                _finishPoint.position, Quaternion.Euler(Vector3.zero),
+                _finishPoint
+            );
+        }
+
         private void OnEnable()
         {
             _sensor.TargetEntered += SensorOnTargetEntered;
