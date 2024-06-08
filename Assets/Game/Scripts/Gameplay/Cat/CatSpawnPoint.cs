@@ -6,20 +6,12 @@ namespace Game.Scripts
     public class CatSpawnPoint : MonoBehaviour
     {
         [SerializeField] private Transform _catSpawnPoint;
-        [SerializeField] private Transform _curseTrail;
         [SerializeField] private Cat _catPrefab;
         [SerializeField] private ImageProgressBar _imageProgressBar;
-        [SerializeField] private BaseTweenStat _tweenStat;
 
-        Cat cat;
+        Cat _cat;
         private bool _isCatActivated;
 
-        //private new Renderer renderer;
-
-        private void Start()
-        {
-            //renderer = _curseTrail.GetComponent<Renderer>();
-        }
         private Vector3 GetPosition()
         {
             return transform.position;
@@ -30,13 +22,12 @@ namespace Game.Scripts
             if (_isCatActivated)
                 return;
 
-            cat = Instantiate(_catPrefab, _catSpawnPoint.position, Quaternion.identity);
-            cat.ProgressChanged += OnProgressChanged;
-            cat.MoveToPosition(position, OnCatFinished);
+            _cat = Instantiate(_catPrefab, _catSpawnPoint.position, Quaternion.identity);
+            _cat.ProgressChanged += OnProgressChanged;
+            _cat.MoveToPosition(position, OnCatFinished);
+            
             _imageProgressBar.Show();
             _isCatActivated = true;
-
-            _curseTrail.position = position;
         }
 
         private void OnProgressChanged(float progress)
@@ -47,14 +38,8 @@ namespace Game.Scripts
         private void OnCatFinished()
         {
             _isCatActivated = false;
-            cat.ProgressChanged -= OnProgressChanged;
+            _cat.ProgressChanged -= OnProgressChanged;
             _imageProgressBar.Hide();
-        }
-
-        private void Update()
-        {
-            if (!_isCatActivated)
-                return;
         }
     }
 }

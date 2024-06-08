@@ -1,7 +1,14 @@
-namespace Game.Scripts.Gameplay.Character
+using UnityEngine;
+
+namespace Game.Scripts
 {
-    public class CharacterService
+    public class CharacterService : MonoBehaviour
     {
+        [SerializeField] private Character _character;
         
+        public Character GetCharacter()
+        {
+            return _character;
+        }
     }
 }
