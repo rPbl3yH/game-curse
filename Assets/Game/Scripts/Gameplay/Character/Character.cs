@@ -12,7 +12,7 @@ namespace Game.Scripts
         [SerializeField] private UnityEngine.CharacterController _characterController;
         [SerializeField] private float _speed = 3f;
         [SerializeField] private CharacterDeathComponent _deathComponent;
-
+        
         public RotationComponent RotationComponent;
 
         private Vector3 _direction;

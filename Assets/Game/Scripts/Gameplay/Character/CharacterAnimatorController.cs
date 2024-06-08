@@ -22,10 +22,23 @@ namespace Game.Scripts
         private void OnEnable()
         {
             _character.VelocityChanged += OnVelocityChanged;
-            _character.DeathEvent += CharacterOnDeathEvent;
+            _character.DeathEvent += OnDeathEvent;
+            _character.DeathRequest += OnDeathRequest;
         }
 
-        private void CharacterOnDeathEvent(int index)
+        private void OnDisable()
+        {
+            _character.VelocityChanged -= OnVelocityChanged;
+            _character.DeathEvent -= OnDeathEvent;
+            _character.DeathRequest -= OnDeathRequest;
+        }
+
+        private void OnDeathRequest()
+        {
+            _animancerComponent.Play(HappyIdle, 0.2f);
+        }
+
+        private void OnDeathEvent(int index)
         {
             _state = _animancerComponent.Play(StandingDeath);
             _state.Events.endEvent.callback += Callback;
@@ -35,11 +48,6 @@ namespace Game.Scripts
         {
             _state.Events.endEvent.callback -= Callback;
             _menuService.ShowMenu(MenuType.Lose);
-        }
-
-        private void OnDisable()
-        {
-            _character.VelocityChanged -= OnVelocityChanged;
         }
 
         private void OnVelocityChanged(Vector3 velocity)
@@ -54,5 +62,6 @@ namespace Game.Scripts
                 _animancerComponent.Play(Walking, 0.2f);
             }
         }
+        
     }
 }

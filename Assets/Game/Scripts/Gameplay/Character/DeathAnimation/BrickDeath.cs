@@ -13,7 +13,8 @@ namespace Game.Scripts.Gameplay
         [SerializeField] private BaseTweenStat _tweenStat;
         [SerializeField] private Rigidbody _rigidbody;
 
-        [SerializeField] private float _force;
+        [SerializeField] private float _force = 10f;
+        [SerializeField] private float _torgue = 10f;
 
         private void Start()
         {
@@ -42,6 +43,8 @@ namespace Game.Scripts.Gameplay
             var randomVector = Vector3Utils.GetRandomVector3(0f, 1f);
             randomVector.y = 1f;
             _rigidbody.AddRelativeForce(randomVector * _force);
+            _rigidbody.AddRelativeTorque(randomVector * _torgue);
+
             _character.OnBrickHit();
         }
     }
