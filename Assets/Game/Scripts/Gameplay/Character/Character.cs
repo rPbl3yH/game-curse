@@ -11,6 +11,7 @@ namespace Game.Scripts
         
         [SerializeField] private UnityEngine.CharacterController _characterController;
         [SerializeField] private float _speed = 3f;
+        [SerializeField] private CharacterDeathComponent _deathComponent;
 
         public RotationComponent RotationComponent;
 
@@ -20,7 +21,8 @@ namespace Game.Scripts
         private bool _isDead;
 
         public event Action<Vector3> VelocityChanged;
-        public event Action DeathEvent;
+        public event Action DeathRequest;
+        public event Action<int> DeathEvent;
         
         public void Move(Vector3 direction)
         {
@@ -47,8 +49,14 @@ namespace Game.Scripts
 
         public void Death()
         {
-            DeathEvent?.Invoke();
+            _deathComponent.StartDeath();
             _isDead = true;
+            DeathRequest?.Invoke();
+        }
+
+        public void OnBrickHit()
+        {
+            DeathEvent?.Invoke(0);
         }
     }
 }

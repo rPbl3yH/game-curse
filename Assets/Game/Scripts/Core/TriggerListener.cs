@@ -4,16 +4,19 @@ namespace Game.Scripts
 {
     public class TriggerListener
     {
-        private readonly GameController _gameController;
+        private readonly LevelController _levelController;
 
-        public TriggerListener(GameController gameController)
+        public TriggerListener(LevelController levelController)
         {
-            _gameController = gameController;
+            _levelController = levelController;
         }
 
         public void OnTrigger(Collider collider)
         {
-            _gameController.LoseGame();
+            if (collider.GetComponent<Character>())
+            {
+                _levelController.LoseGame();
+            }
         }
     }
 }

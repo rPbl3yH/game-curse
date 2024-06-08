@@ -7,8 +7,9 @@ using Zenject;
 
 namespace Game.Scripts
 {
-    public class GameController : MonoBehaviour
+    public class LevelController : MonoBehaviour
     {
+        [SerializeField]
         private CharacterController _characterController;
         
         private MenuService _menuService;
@@ -23,8 +24,6 @@ namespace Game.Scripts
 
         private void Start()
         {
-            _characterController = FindObjectOfType<CharacterController>();
-
             PrepareGame();
         }
 
@@ -45,9 +44,8 @@ namespace Game.Scripts
         {
             Debug.Log("Lose game");
             _gameManager.FinishGame();
-            _menuService.ShowMenu(MenuType.Lose);
         }
-
+        
         public void Restart()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);

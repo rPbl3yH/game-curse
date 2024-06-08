@@ -1,12 +1,15 @@
 using System;
 using Animancer;
+using Modules.BaseUI;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Zenject;
 
 namespace Game.Scripts
 {
     public class CharacterAnimatorController : MonoBehaviour
     {
+        [Inject] private MenuService _menuService;
         [SerializeField] private Character _character;
         [SerializeField] private AnimancerComponent _animancerComponent;
         
@@ -14,15 +17,24 @@ namespace Game.Scripts
         private static readonly object HappyIdle = "HappyIdle";
         private static readonly object Walking = "Walking";
 
+        private AnimancerState _state;
+
         private void OnEnable()
         {
             _character.VelocityChanged += OnVelocityChanged;
             _character.DeathEvent += CharacterOnDeathEvent;
         }
 
-        private void CharacterOnDeathEvent()
+        private void CharacterOnDeathEvent(int index)
         {
-            _animancerComponent.Play(StandingDeath);
+            _state = _animancerComponent.Play(StandingDeath);
+            _state.Events.endEvent.callback += Callback;
+        }
+
+        private void Callback()
+        {
+            _state.Events.endEvent.callback -= Callback;
+            _menuService.ShowMenu(MenuType.Lose);
         }
 
         private void OnDisable()

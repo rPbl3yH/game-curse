@@ -8,12 +8,12 @@ namespace Game.Scripts.UI
     {
         [SerializeField] private BaseUIButton _button;
 
-        private GameController _gameController;
+        private LevelController _levelController;
         
         [Inject]
-        public void Construct(GameController gameController)
+        public void Construct(LevelController levelController)
         {
-            _gameController = gameController;
+            _levelController = levelController;
         }
         
         private void OnEnable()
@@ -28,7 +28,7 @@ namespace Game.Scripts.UI
 
         private void OnClicked()
         {
-            _gameController.StartGame();
+            _levelController.StartGame();
         }
     }
 }

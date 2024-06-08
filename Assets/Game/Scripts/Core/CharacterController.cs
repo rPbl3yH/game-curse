@@ -1,12 +1,19 @@
 using Modules.GameManagement;
 using UnityEngine;
+using Zenject;
 
 namespace Game.Scripts
 {
     public class CharacterController : MonoBehaviour, IGameFinishListener
     {
         [SerializeField] private Transform _spawnPoint;
-        [SerializeField] private Character _character;
+        private Character _character;
+
+        [Inject]
+        private void Construct(CharacterService characterService)
+        {
+            _character = characterService.GetCharacter();
+        }
         
         public void Setup()
         {
