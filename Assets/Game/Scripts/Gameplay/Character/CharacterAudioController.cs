@@ -1,4 +1,5 @@
 using Game;
+using Game.Scripts.Gameplay.Character;
 using UnityEngine;
 using Zenject;
 
