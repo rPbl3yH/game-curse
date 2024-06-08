@@ -7,10 +7,6 @@ namespace Modules.BaseUI
     {
         [SerializeField] private Slider _slider;
 
-        public void SetValue(float value)
-        {
-        }
-
         public override void Show()
         {
             _slider.gameObject.SetActive(true);

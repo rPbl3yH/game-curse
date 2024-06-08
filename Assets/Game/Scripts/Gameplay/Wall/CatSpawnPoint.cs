@@ -1,5 +1,4 @@
-using DG.Tweening;
-using System;
+using Modules.BaseUI;
 using UnityEngine;
 
 namespace Game.Scripts
@@ -9,6 +8,8 @@ namespace Game.Scripts
         [SerializeField] private Transform _catSpawnPoint;
         [SerializeField] private Transform _curseTrail;
         [SerializeField] private Cat _catPrefab;
+        [SerializeField] private ImageProgressBar _imageProgressBar;
+        [SerializeField] private BaseTweenStat _tweenStat;
 
         Cat cat;
         private bool _isCatActivated;
@@ -24,44 +25,30 @@ namespace Game.Scripts
                 return;
 
             cat = Instantiate(_catPrefab, _catSpawnPoint.position, Quaternion.identity);
+            cat.ProgressChanged += OnProgressChanged;
             cat.MoveToPosition(position, OnCatFinished);
+            _imageProgressBar.Show();
             _isCatActivated = true;
 
-            _curseTrail.DOComplete();
             _curseTrail.position = position;
-            //_curseTrail.GetComponent<Renderer>()?.material.DOFade(1, 3);
+        }
+
+        private void OnProgressChanged(float progress)
+        {
+            _imageProgressBar.SetProgress(progress);
         }
 
         private void OnCatFinished()
         {
             _isCatActivated = false;
-
-            _curseTrail.DOScaleY(0, 3);
-            _curseTrail.DOLocalMoveZ(5f, 3);
-            //_curseTrail.GetComponent<Renderer>()?.material.DOFade(0, 1);
+            cat.ProgressChanged -= OnProgressChanged;
+            _imageProgressBar.Hide();
         }
 
         private void Update()
         {
             if (!_isCatActivated)
                 return;
-
-            var dist = Vector3.Distance(_catSpawnPoint.position, cat.transform.position)-1.5f;
-            if (dist < 0)
-                dist = 0;
-            _curseTrail.localScale =
-                new Vector3(
-                    _curseTrail.localScale.x,
-                    dist/2,
-                    _curseTrail.localScale.z
-                );
-
-            _curseTrail.localPosition =
-                new Vector3(
-                    _curseTrail.localPosition.x,
-                    _curseTrail.localPosition.y,
-                    dist/2
-                );
         }
     }
 }

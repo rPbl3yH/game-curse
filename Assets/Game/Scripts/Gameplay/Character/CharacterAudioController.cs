@@ -19,6 +19,7 @@ namespace Lessons.Lesson_SectionAndVisuals
         private void OnEnable()
         {
             _animatorDispatcher.SubscribeOnEvent("step", OnStep);
+            
         }
 
         private void OnStep()
