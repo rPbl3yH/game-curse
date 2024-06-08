@@ -15,7 +15,8 @@ namespace Modules.BaseUI
         Main,
         Lose,
         Win,
-        GameMenu,
+        Settings,
+        Game,
         AdsLose,
     }
 }
