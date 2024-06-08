@@ -527,7 +527,7 @@ MonoBehaviour:
   _tweenStat:
     TargetValue: 0
     Duration: 0.5
-    Easing: 29
+    Easing: 26
   _rigidbody: {fileID: 118362003}
   _force: 100
   _torgue: 10
