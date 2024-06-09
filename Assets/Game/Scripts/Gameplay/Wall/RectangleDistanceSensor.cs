@@ -24,16 +24,18 @@ namespace Game.Scripts.Gameplay.Wall
         {
             _targetTransform = characterService.GetCharacter().transform;
         }
-        
-        void Update()
+
+        private void Update()
         {
             CheckPositionInRectangle();
         }
 
-        void CheckPositionInRectangle()
+        private void CheckPositionInRectangle()
         {
-            float xCheck = Mathf.Abs(_targetTransform.position.x - _centerPoint.position.x) / _rectangleSize.x;
-            float zCheck = Mathf.Abs(_targetTransform.position.z - _centerPoint.position.z) / _rectangleSize.y;
+            var xCheck = 
+                Mathf.Abs(_targetTransform.position.x - _centerPoint.position.x) / (_rectangleSize.x / 2f);
+            var zCheck = 
+                Mathf.Abs(_targetTransform.position.z - _centerPoint.position.z) / (_rectangleSize.y / 2f);
 
             if ((xCheck > 1 || zCheck > 1) && _isInRectangle)
             {

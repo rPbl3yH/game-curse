@@ -9,10 +9,12 @@ namespace Game.Scripts
     public class GameContextInstaller : MonoInstaller
     {
         [SerializeField] private GameAudioConfig _gameAudioConfig;
+        [SerializeField] private ItemConfig _itemConfig;
         
         public override void InstallBindings()
         {
             Container.Bind<GameAudioConfig>().FromInstance(_gameAudioConfig).AsSingle().NonLazy();
+            Container.Bind<ItemConfig>().FromInstance(_itemConfig).AsSingle().NonLazy();
             UIInstaller.Install(Container);
 
             Container.Bind<CharacterService>().FromComponentInHierarchy().AsCached().NonLazy();
