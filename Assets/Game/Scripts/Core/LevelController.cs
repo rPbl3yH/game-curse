@@ -2,6 +2,7 @@ using System;
 using Modules.BaseUI;
 using Modules.GameManagement;
 using Modules.SaveSystem;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
@@ -10,14 +11,16 @@ namespace Game.Scripts
 {
     public class LevelController : MonoBehaviour
     {
-        
         [SerializeField]
         private CharacterController _characterController;
         
         private MenuService _menuService;
         private GameManager _gameManager;
         private SaveLoadManager _saveLoadManager;
+        private SceneLoader _sceneLoader = new();
 
+        [ShowInInspector]
+        public int Level { get; set; }
         public event Action LevelLost;
         public event Action LevelStarted;
         public event Action LevelCompleted;
@@ -36,12 +39,23 @@ namespace Game.Scripts
         private void Start()
         {
             LoadGame();
+            LoadScene();
             PrepareGame();
         }
 
         private void LoadGame()
         {
             _saveLoadManager.Load();
+        }
+
+        private void SaveGame()
+        {
+            _saveLoadManager.Save();
+        }
+
+        private void LoadScene()
+        {
+            _sceneLoader.LoadScene(Level);
         }
 
         private void PrepareGame()
@@ -58,12 +72,14 @@ namespace Game.Scripts
             _gameManager.StartGame();
             
             LevelStarted?.Invoke();
+            SaveGame();
         }
 
         public void WinGame()
         {
             LevelCompleted?.Invoke();
             _gameManager.FinishGame();
+            SaveGame();
         }
         
         public void LoseGame()
@@ -75,12 +91,13 @@ namespace Game.Scripts
         
         public void Restart()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            _sceneLoader.ReloadScene();
         }
 
-        public void NextLevel()
+        public void LaunchNextLevel()
         {
-            
+            Level++;
+            LoadScene();
         }
     }
 }

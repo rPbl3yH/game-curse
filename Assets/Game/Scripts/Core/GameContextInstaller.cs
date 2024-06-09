@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Modules.GameManagement;
 using UnityEngine;
 using Zenject;
@@ -11,9 +12,12 @@ namespace Game.Scripts
         
         public override void InstallBindings()
         {
+            Container.BindInterfacesAndSelfTo<ZenjectGameContext>().AsSingle().NonLazy();
             Container.Bind<GameAudioConfig>().FromInstance(_gameAudioConfig).AsSingle().NonLazy();
             Container.Bind<ItemConfig>().FromInstance(_itemConfig).AsSingle().NonLazy();
             
+            Container.Bind<AudioManager>().FromComponentInHierarchy().AsSingle().NonLazy();
+
             SaveLoadInstaller.Install(Container);
             UIInstaller.Install(Container);
 

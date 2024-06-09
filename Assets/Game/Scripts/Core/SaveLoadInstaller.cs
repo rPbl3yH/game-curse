@@ -8,6 +8,7 @@ namespace Game.Scripts
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<SettingsSaveLoader>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<LevelSaveLoader>().AsSingle().NonLazy();
             
             Container.Bind<SaveLoadManager>().AsSingle().NonLazy();
         }
