@@ -16,6 +16,8 @@ namespace Game.Scripts
         
         public void MoveToPosition(Vector3 position, Action onComplete)
         {
+            transform.LookAt(position);
+
             var tween = _catModel.DOMove(position, _baseTweenStat.Duration)
                 .SetLink(_catModel.gameObject)
                 .SetEase(_baseTweenStat.Easing)
