@@ -32,17 +32,17 @@ namespace Game.Scripts
         {
             _character.VelocityChanged += OnVelocityChanged;
             _character.DeathEvent += OnDeathEvent;
-            _character.DeathRequest += OnDeathRequest;
+            _character.StopRequest += OnStopRequest;
         }
 
         private void OnDisable()
         {
             _character.VelocityChanged -= OnVelocityChanged;
             _character.DeathEvent -= OnDeathEvent;
-            _character.DeathRequest -= OnDeathRequest;
+            _character.StopRequest -= OnStopRequest;
         }
 
-        private void OnDeathRequest()
+        private void OnStopRequest()
         {
             _animancerComponent.Play(HappyIdle, 0.2f);
         }
@@ -53,12 +53,12 @@ namespace Game.Scripts
             var key = _deathKeys[index];
             
             _state = _animancerComponent.Play(key);
-            _state.Events.endEvent.callback += Callback;
+            _state.Events.endEvent.callback += OnDeathEventEnded;
         }
 
-        private void Callback()
+        private void OnDeathEventEnded()
         {
-            _state.Events.endEvent.callback -= Callback;
+            _state.Events.endEvent.callback -= OnDeathEventEnded;
             AudioManager.Instance.PlaySound(_gameAudioConfig.LevelLose);
             _menuService.ShowMenu(MenuType.Lose);
         }
@@ -75,6 +75,5 @@ namespace Game.Scripts
                 _animancerComponent.Play(Walking, 0.2f);
             }
         }
-        
     }
 }

@@ -23,7 +23,7 @@ namespace Game.Scripts
         private int _deathIndex;
 
         public event Action<Vector3> VelocityChanged;
-        public event Action DeathRequest;
+        public event Action StopRequest;
         public event Action<int> DeathEvent;
         
         public void Move(Vector3 direction)
@@ -39,23 +39,18 @@ namespace Game.Scripts
             RotationComponent.Rotate(direction);
         }
 
-        public Vector3 GetPosition()
-        {
-            return transform.position;
-        }
-
-        public Vector3 GetVelocity()
-        {
-            return _characterController.velocity;
-        }
-
         [Button]
         public void Death()
         {
             _isDead = true;
-            DeathRequest?.Invoke();
+            StopRequest?.Invoke();
             _deathComponent.StartDeath(out _deathIndex);
             print($"Death index = {_deathIndex}");
+        }
+
+        public void Stop()
+        {
+            StopRequest?.Invoke();
         }
 
         public void OnFinishedHit()

@@ -61,10 +61,6 @@ namespace Game.Scripts
             _saveLoadManager.Save();
         }
 
-        private void LoadScene()
-        {
-        }
-
         private void PrepareGame()
         {
             _gameManager.InitGame();
@@ -93,6 +89,7 @@ namespace Game.Scripts
             LevelCompleted?.Invoke();
             _gameManager.FinishGame();
             SaveGame();
+            _menuService.ShowMenu(MenuType.Win);
         }
         
         public void LoseGame()
@@ -110,7 +107,7 @@ namespace Game.Scripts
         public void LaunchNextLevel()
         {
             Level++;
-            LoadScene();
+            _sceneLoader.TryLoadScene(Level);
         }
     }
 }
