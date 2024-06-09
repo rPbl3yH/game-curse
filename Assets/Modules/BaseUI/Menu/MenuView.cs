@@ -18,5 +18,6 @@ namespace Modules.BaseUI
         Settings,
         Game,
         AdsLose,
+        Tutorial,
     }
 }
