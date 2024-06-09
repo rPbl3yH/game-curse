@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &407132795062205743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3671906205981841907}
+  m_Layer: 0
+  m_Name: Visual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3671906205981841907
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407132795062205743}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6033217182181575151}
+  m_Father: {fileID: 6650928492086351935}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8704682469790443193
 GameObject:
   m_ObjectHideFlags: 0
@@ -30,7 +62,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6033217182181575151}
+  - {fileID: 3671906205981841907}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7690386603027484797
@@ -45,13 +77,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52ca51e70960407f9527be666d1fe194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 1824910749615244655}
 --- !u!1001 &6066615272361045508
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 6650928492086351935}
+    m_TransformParent: {fileID: 3671906205981841907}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: f9721a130466b4945860042f1b6a6a6b,
         type: 3}
@@ -91,17 +124,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f9721a130466b4945860042f1b6a6a6b,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f9721a130466b4945860042f1b6a6a6b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f9721a130466b4945860042f1b6a6a6b,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f9721a130466b4945860042f1b6a6a6b,
         type: 3}
@@ -131,7 +164,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f9721a130466b4945860042f1b6a6a6b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1824910749615244655}
   m_SourcePrefab: {fileID: 100100000, guid: f9721a130466b4945860042f1b6a6a6b, type: 3}
 --- !u!4 &6033217182181575151 stripped
 Transform:
@@ -139,3 +176,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6066615272361045508}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6409074870415987541 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f9721a130466b4945860042f1b6a6a6b,
+    type: 3}
+  m_PrefabInstance: {fileID: 6066615272361045508}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1824910749615244655
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6409074870415987541}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ef7a0f1e2e346f842b89c61c92f30c15, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

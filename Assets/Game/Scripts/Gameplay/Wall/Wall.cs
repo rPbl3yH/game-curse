@@ -37,6 +37,7 @@ namespace Game.Scripts
             if (_isCatActivated)
                 return;
 
+            _startItemPoint.ShowAnimation();
             _cat = Instantiate(_catPrefab, _startItemPoint.GetPosition(), Quaternion.identity);
             _cat.ProgressChanged += OnProgressChanged;
             _cat.MoveToPosition(position, OnCatFinished);
