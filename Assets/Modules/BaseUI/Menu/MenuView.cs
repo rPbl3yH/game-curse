@@ -16,6 +16,7 @@ namespace Modules.BaseUI
         Lose,
         Win,
         Settings,
+        AboutUs,
         Game,
         AdsLose,
     }

@@ -9,6 +9,7 @@ namespace Game.Scripts.UI
     {
         [SerializeField] private BaseUIButton _startGameButton;
         [SerializeField] private BaseUIButton _settingsButton;
+        [SerializeField] private BaseUIButton _aboutUsButton;
 
         private LevelController _levelController;
         private MenuService _menuService;
@@ -24,6 +25,7 @@ namespace Game.Scripts.UI
         {
             _startGameButton.Clicked += OnClicked;
             _settingsButton.Clicked += SettingsButtonOnClicked;
+            _aboutUsButton.Clicked += ShowAboutAsPanel;
         }
 
         private void OnDisable()
@@ -32,14 +34,11 @@ namespace Game.Scripts.UI
             _settingsButton.Clicked -= SettingsButtonOnClicked;
         }
 
-        private void SettingsButtonOnClicked()
-        {
-            _menuService.ShowMenu(MenuType.Settings);
-        }
+        private void SettingsButtonOnClicked() => _menuService.ShowMenu(MenuType.Settings);
 
-        private void OnClicked()
-        {
-            _levelController.StartGame();
-        }
+        private void OnClicked() => _levelController.StartGame();
+
+        private void ShowAboutAsPanel() => _menuService.ShowMenu(MenuType.AboutUs);
+
     }
 }
