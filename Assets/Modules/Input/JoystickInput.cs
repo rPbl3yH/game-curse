@@ -33,15 +33,11 @@ namespace Modules.Input
 
         private void Update()
         {
-#if UNITY_EDITOR
             UpdateMouse();
-#else
-            UpdateTouch();
-#endif
         }
 
 
-#if UNITY_EDITOR
+// #if UNITY_EDITOR
         private void UpdateMouse()
         {
             if (UnityEngine.Input.GetMouseButtonDown(MOUSE_BUTTON) && !IsPointerOverGameObject())
@@ -67,7 +63,7 @@ namespace Modules.Input
 
             return _eventSystem.IsPointerOverGameObject();
         }
-#else
+// #else
         private void UpdateTouch()
         {
             var touchCount = UnityEngine.Input.touchCount;
@@ -101,7 +97,7 @@ namespace Modules.Input
 
             return _eventSystem.IsPointerOverGameObject(fingerId);
         }
-#endif
+// #endif
 
         private void StartInput(Vector2 inputPosition)
         {
