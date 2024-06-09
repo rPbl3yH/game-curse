@@ -17,6 +17,7 @@ namespace Game.Scripts.UI
             base.Show();
             _tween?.Kill();
             _tween = _content.DOScale(_tweenStat.TargetValue, _tweenStat.Duration)
+                .From(0f)
                 .SetEase(_tweenStat.Easing)
                 .SetLink(_content.gameObject);
         }
