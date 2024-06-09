@@ -9,10 +9,16 @@ namespace Game.Scripts.UI
 {
     public class AboutUsMenu : MenuView
     {
-        private Animation _showAnimation;
-
         [SerializeField] private Image _panel;
         [SerializeField] private BaseUIButton _closeMenuButton;
+
+        /*private MenuService _menuService;
+
+        [Inject]
+        public void Construct(MenuService menuService)
+        {
+            _menuService = menuService;
+        }*/
 
         private void Awake()
         {
@@ -25,7 +31,6 @@ namespace Game.Scripts.UI
         public override void Show()
         {
             gameObject.SetActive(true);
-            //_showAnimation.Play();
 
             _panel.transform.localPosition = Vector3.zero;
 
@@ -49,6 +54,7 @@ namespace Game.Scripts.UI
             var color = _panel.color;
             color.a = 0;
             _panel.DOColor(color, 1).OnComplete(() => gameObject.SetActive(false));
+            //_panel.DOFade(0, 1).OnComplete(() => _menuService.HideMenu());
         }
     }
 }
