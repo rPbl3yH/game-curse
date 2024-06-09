@@ -1923,6 +1923,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CatWall (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5562434317421280371, guid: a8155d5ca4a0d47a096a72da35cc3355,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6197056590867064937, guid: a8155d5ca4a0d47a096a72da35cc3355,
         type: 3}
       propertyPath: _rectangleSize.x
@@ -2947,6 +2952,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CatWall (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5562434317421280371, guid: a8155d5ca4a0d47a096a72da35cc3355,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6197056590867064937, guid: a8155d5ca4a0d47a096a72da35cc3355,
         type: 3}
       propertyPath: _rectangleSize.x
@@ -3082,6 +3092,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CatWall (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5562434317421280371, guid: a8155d5ca4a0d47a096a72da35cc3355,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6197056590867064937, guid: a8155d5ca4a0d47a096a72da35cc3355,
         type: 3}

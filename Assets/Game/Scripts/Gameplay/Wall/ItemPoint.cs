@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -15,6 +16,11 @@ namespace Game.Scripts
         public void Construct(ItemConfig itemConfig)
         {
             _itemConfig = itemConfig;
+        }
+
+        private void Start()
+        {
+            TrySpawn();
         }
 
         public void TrySpawn()

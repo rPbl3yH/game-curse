@@ -17,12 +17,6 @@ namespace Game.Scripts
         Cat _cat;
         private bool _isCatActivated;
 
-        private void Start()
-        {
-            _startItemPoint.TrySpawn();
-            _endItemPoint.TrySpawn();
-        }
-
         private void OnEnable()
         {
             _sensor.TargetEntered += SensorOnTargetEntered;
