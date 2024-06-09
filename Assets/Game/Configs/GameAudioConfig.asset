@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2c774472d754ba19112241d11a94099, type: 3}
   m_Name: GameAudioConfig
   m_EditorClassIdentifier: 
-  Step: {fileID: 8300000, guid: 06076a64109fe4c319c3ddc97b59f1fe, type: 3}
+  Step: {fileID: 8300000, guid: 70cfecda9dfb17545bccf1d753a525d3, type: 3}
   CatVoice: {fileID: 8300000, guid: 06076a64109fe4c319c3ddc97b59f1fe, type: 3}
   LevelStarted: {fileID: 8300000, guid: 06076a64109fe4c319c3ddc97b59f1fe, type: 3}
   LevelWin: {fileID: 8300000, guid: 8657862b2aa024a60915c7865fff2897, type: 3}
   PlayerDeathLose: {fileID: 8300000, guid: 89b2b9794ec8a46459dcf40c7c1bbf63, type: 3}
   LevelLose: {fileID: 8300000, guid: 68407d594bdd94ecd951708f40f449f1, type: 3}
   BallFallClip: {fileID: 8300000, guid: 5dcfc45b3946b4e36b0f1119819b9098, type: 3}
-  ThunderboltClip: {fileID: 8300000, guid: 06076a64109fe4c319c3ddc97b59f1fe, type: 3}
+  ThunderboltClip: {fileID: 8300000, guid: 2f891b82bdc080b41be37e29286e2d6c, type: 3}
   BrickFallClip: {fileID: 8300000, guid: 5dcfc45b3946b4e36b0f1119819b9098, type: 3}
   ButtonClicked: {fileID: 8300000, guid: 58b5a07b7261b439cb51d1ec78e943e9, type: 3}
