@@ -39,7 +39,12 @@ namespace Game.Scripts
         private void Start()
         {
             LoadGame();
-            LoadScene();
+
+            if (_sceneLoader.TryLoadScene(Level))
+            {
+                return;
+            }
+            
             PrepareGame();
         }
 
@@ -55,7 +60,6 @@ namespace Game.Scripts
 
         private void LoadScene()
         {
-            _sceneLoader.LoadScene(Level);
         }
 
         private void PrepareGame()

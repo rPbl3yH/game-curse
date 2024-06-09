@@ -5,18 +5,21 @@ namespace Game.Scripts
 {
     public class SceneLoader
     {
-        public void LoadScene(int index)
+        public bool TryLoadScene(int index)
         {
             if (index >= SceneManager.sceneCountInBuildSettings)
             {
                 Debug.Log("Scene doesn't exist");
-                return;
+                return false;
             }
             
             if (SceneManager.GetActiveScene().buildIndex != index)
             {
                 SceneManager.LoadScene(index);
+                return true;
             }
+
+            return false;
         }
 
         public void ReloadScene()
