@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Game.Scripts.Gameplay.Wall;
 using UnityEngine;
 
@@ -14,17 +15,25 @@ namespace Game.Scripts
 
         private void Start()
         {
-            Instantiate(
+            var box = Instantiate(
                 boxVariant[Random.Range(0, boxVariant.Length)],
-                _catSpawnPoint.transform.position, Quaternion.Euler(Vector3.zero),
-                _catSpawnPoint.transform
+                _catSpawnPoint.transform.position,
+                Quaternion.Euler(Vector3.zero)
             );
 
-            Instantiate(
+            box.transform.DOScale(Vector3.one, 1);
+            box.transform.Rotate(0, Random.Range(0, 360), 0);
+            box.transform.SetParent(_catSpawnPoint.transform);
+
+            box = Instantiate(
                 boxVariant[Random.Range(0, boxVariant.Length)],
-                _finishPoint.position, Quaternion.Euler(Vector3.zero),
-                _finishPoint
+                _finishPoint.position,
+                Quaternion.Euler(Vector3.zero)
             );
+
+            box.transform.DOScale(Vector3.one, 1);
+            box.transform.Rotate(0, Random.Range(0, 360), 0);
+            box.transform.SetParent(_finishPoint);
         }
 
         private void OnEnable()
