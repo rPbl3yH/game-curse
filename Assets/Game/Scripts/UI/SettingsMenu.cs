@@ -1,35 +1,34 @@
 using System;
+using DG.Tweening;
 using Modules.BaseUI;
 using UnityEngine;
-using Zenject;
 
 namespace Game.Scripts.UI
 {
     public class SettingsMenu : MenuView
     {
-        [SerializeField] private BaseUIButton _closeSettingButton;
-
-        private MenuService _menuService;
-
-        [Inject] 
-        public void Construct(MenuService menuService)
+        [SerializeField] private Transform _content;
+        [SerializeField] private BaseTweenStat _tweenStat;
+        
+        private Tween _tween;
+        
+        public override void Show()
         {
-            _menuService = menuService;
+            base.Show();
+            _tween?.Kill();
+            _tween = _content.DOScale(_tweenStat.TargetValue, _tweenStat.Duration)
+                .SetEase(_tweenStat.Easing)
+                .SetLink(_content.gameObject);
         }
 
-        private void OnEnable()
+        public override void Hide()
         {
-            _closeSettingButton.Clicked += OnCloseClicked;
-        }
-
-        private void OnDisable()
-        {
-            _closeSettingButton.Clicked -= OnCloseClicked;
-        }
-
-        private void OnCloseClicked()
-        {
-            _menuService.HideMenu();
+            base.Hide();
+            // _tween?.Kill();
+            // _tween = _content.DOScale(0, _tweenStat.Duration)
+            //     .SetEase(_tweenStat.Easing)
+            //     .SetLink(_content.gameObject)
+            //     .OnComplete(base.Hide);
         }
     }
 }
