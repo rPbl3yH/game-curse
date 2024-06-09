@@ -216,6 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _progressImage: {fileID: 5402270012225199603}
+  _hideDuration: 1.5
 --- !u!1 &7536535938881005952
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,7 +420,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8547852887601860010}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

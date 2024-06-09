@@ -1,6 +1,8 @@
 using System;
 using Modules.BaseUI;
 using Modules.GameManagement;
+using Modules.SaveSystem;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
@@ -14,21 +16,50 @@ namespace Game.Scripts
         
         private MenuService _menuService;
         private GameManager _gameManager;
+        private SaveLoadManager _saveLoadManager;
+        private SceneLoader _sceneLoader = new();
 
+        [ShowInInspector]
+        public int Level { get; set; }
         public event Action LevelLost;
         public event Action LevelStarted;
         public event Action LevelCompleted;
         
         [Inject]
-        public void Construct(GameManager gameManager, MenuService menuService)
+        public void Construct(
+            GameManager gameManager, 
+            MenuService menuService,
+            SaveLoadManager saveLoadManager)
         {
             _gameManager = gameManager;
             _menuService = menuService;
+            _saveLoadManager = saveLoadManager;
         }
 
         private void Start()
         {
+            LoadGame();
+
+            if (_sceneLoader.TryLoadScene(Level))
+            {
+                return;
+            }
+            
             PrepareGame();
+        }
+
+        private void LoadGame()
+        {
+            _saveLoadManager.Load();
+        }
+
+        private void SaveGame()
+        {
+            _saveLoadManager.Save();
+        }
+
+        private void LoadScene()
+        {
         }
 
         private void PrepareGame()
@@ -45,12 +76,14 @@ namespace Game.Scripts
             _gameManager.StartGame();
             
             LevelStarted?.Invoke();
+            SaveGame();
         }
 
         public void WinGame()
         {
             LevelCompleted?.Invoke();
             _gameManager.FinishGame();
+            SaveGame();
         }
         
         public void LoseGame()
@@ -62,7 +95,13 @@ namespace Game.Scripts
         
         public void Restart()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            _sceneLoader.ReloadScene();
+        }
+
+        public void LaunchNextLevel()
+        {
+            Level++;
+            LoadScene();
         }
     }
 }

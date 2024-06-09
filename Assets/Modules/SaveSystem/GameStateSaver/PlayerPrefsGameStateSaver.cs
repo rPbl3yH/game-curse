@@ -16,9 +16,15 @@ namespace Modules.SaveSystem
 
         public Dictionary<string, string> Load()
         {
-            var savedJson = PlayerPrefs.GetString(GAME_STATE_KEY);
-            var gameState = JsonConvert.DeserializeObject<Dictionary<string, string>>(savedJson);
-            return gameState;
+            if (PlayerPrefs.HasKey(GAME_STATE_KEY))
+            {
+                var savedJson = PlayerPrefs.GetString(GAME_STATE_KEY);
+                var gameState = JsonConvert.DeserializeObject<Dictionary<string, string>>(savedJson);
+                return gameState;
+
+            }
+
+            return new Dictionary<string, string>();
         }
     }
 }

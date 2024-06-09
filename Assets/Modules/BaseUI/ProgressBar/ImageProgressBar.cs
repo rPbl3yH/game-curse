@@ -6,6 +6,7 @@ namespace Modules.BaseUI
 {
     public class ImageProgressBar : BaseProgressBar
     {
+        [SerializeField] private float _hideDuration = 1.5f;
         private Tween _tween;
 
         private float _startAlpha;
@@ -30,7 +31,7 @@ namespace Modules.BaseUI
 
         public override void Hide()
         {
-            _tween = _progressImage.DOFade(0f, 1f)
+            _tween = _progressImage.DOFade(0f, _hideDuration)
                 .SetLink(gameObject);
         }
     }
