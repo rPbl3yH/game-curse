@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: "Assets/Models/LexPro/\u0423\u0440\u043E\u0432\u0435\u043D\u044C1.unity"
-    guid: c4525df114d99de49a5d0d0643cdbd4a
-  - enabled: 1
     path: "Assets/Models/LexPro/\u0423\u0440\u043E\u0432\u0435\u043D\u044C2.unity"
     guid: b01a9b1505e3c2941985ecd145021160
   m_configObjects: {}
