@@ -18,8 +18,10 @@ namespace Game.Scripts
         private SaveLoadManager _saveLoadManager;
         private SceneLoader _sceneLoader = new();
 
-        [ShowInInspector]
-        public int Level { get; set; }
+        [ShowInInspector] public static int Level;
+
+        [SerializeField]
+        private bool _isLoad = true;
 
         private static bool _isTutorialView; 
         
@@ -40,14 +42,27 @@ namespace Game.Scripts
 
         private void Start()
         {
-            LoadGame();
+            if (_isLoad)
+            {
+                LoadGame();
+            }
 
-            if (_sceneLoader.TryLoadScene(Level))
+            if (LoadScene())
             {
                 return;
             }
+            // if (_sceneLoader.TryLoadScene(Level))
+            // {
+            //     return;
+            // }
             
             PrepareGame();
+        }
+
+        [Button]
+        private bool LoadScene()
+        {
+            return _sceneLoader.TryLoadScene(Level);
         }
 
         private void LoadGame()
@@ -77,6 +92,8 @@ namespace Game.Scripts
             }
             
             _isTutorialView = true;
+            
+             
             _gameManager.StartGame();
             
             LevelStarted?.Invoke();
@@ -103,9 +120,11 @@ namespace Game.Scripts
             _sceneLoader.ReloadScene();
         }
 
+        [Button]
         public void LaunchNextLevel()
         {
             Level++;
+            SaveGame();
             _sceneLoader.TryLoadScene(Level);
         }
     }

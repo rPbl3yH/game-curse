@@ -29,7 +29,6 @@ namespace Game.Scripts.UI
             
             _fingerView.Show();
             _joystickInput.DirectionMoved += OnDirectionMoved;
-            
         }
 
         private void OnDirectionMoved(Vector2 direction)

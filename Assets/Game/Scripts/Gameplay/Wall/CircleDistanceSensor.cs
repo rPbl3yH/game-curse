@@ -39,12 +39,13 @@ namespace Game.Scripts
             }
         }
         
-        
+#if UNITY_EDITOR
         private void OnDrawGizmosSelected()
         {
             Handles.color = Color.black;
             Handles.DrawWireDisc(transform.position, Vector3.up, _radius);
         }
+#endif
     }
 }
 

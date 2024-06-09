@@ -10,12 +10,12 @@ namespace Game.Scripts
             if (index >= SceneManager.sceneCountInBuildSettings)
             {
                 Debug.Log("Scene doesn't exist");
-                ReloadScene();
                 return false;
             }
             
             if (SceneManager.GetActiveScene().buildIndex != index)
             {
+                Debug.Log("LoadScene");
                 SceneManager.LoadScene(index);
                 return true;
             }

@@ -204,6 +204,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 115306799606530215, guid: 7abdeebc526154c1e8824051c90573a2,
         type: 3}
+      propertyPath: _type
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 115306799606530215, guid: 7abdeebc526154c1e8824051c90573a2,
+        type: 3}
       propertyPath: _menuService
       value: 
       objectReference: {fileID: 8035216608829462645}
@@ -352,6 +357,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3107075295626588493, guid: 22e0dd4913f6743d19802f2e37dea158,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8530590624919410159, guid: 22e0dd4913f6743d19802f2e37dea158,
         type: 3}
@@ -774,7 +784,7 @@ PrefabInstance:
     - target: {fileID: 538417227656651633, guid: 67e371579b50b714e965a10a8bbb1827,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1629414563957227032, guid: 67e371579b50b714e965a10a8bbb1827,
         type: 3}
