@@ -5,6 +5,11 @@ namespace Modules.GameManagement
         
     }
 
+    public interface IGameInitListener : IGameListener
+    {
+        void InitGame();
+    }
+    
     public interface IGameStartListener : IGameListener
     {
         void StartGame();

@@ -33,6 +33,7 @@ namespace Game.Scripts
 
         private void PrepareGame()
         {
+            _gameManager.InitGame();
             _menuService.ShowMenu(MenuType.Main);
             _characterController.Setup();
         }

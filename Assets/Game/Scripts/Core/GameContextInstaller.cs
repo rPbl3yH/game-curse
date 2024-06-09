@@ -1,3 +1,4 @@
+using Game.Scripts.UI;
 using Modules.BaseUI;
 using Modules.GameManagement;
 using UnityEngine;
@@ -32,6 +33,10 @@ namespace Game.Scripts
         public override void InstallBindings()
         {
             Container.Bind<MenuService>().FromComponentInHierarchy().AsCached().NonLazy();
+            Container.BindInterfacesAndSelfTo<MusicSettingPresenter>()
+                .FromComponentInHierarchy().AsCached().NonLazy();
+            Container.BindInterfacesAndSelfTo<SoundSettingPresenter>()
+                .FromComponentInHierarchy().AsCached().NonLazy();
         }
     }
 }
