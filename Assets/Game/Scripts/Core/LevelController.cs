@@ -83,6 +83,8 @@ namespace Game.Scripts
             }
             
             _isTutorialView = true;
+            
+             
             _gameManager.StartGame();
             
             LevelStarted?.Invoke();
