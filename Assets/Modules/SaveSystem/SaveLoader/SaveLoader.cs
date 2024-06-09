@@ -24,7 +24,7 @@ namespace Modules.SaveSystem
             repository.SetData(data);
         }
 
-        protected abstract void SetupData(TService service, TData level);
+        protected abstract void SetupData(TService service, TData data);
 
         protected abstract TData ConvertToData(TService service);
 
