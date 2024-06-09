@@ -204,11 +204,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 115306799606530215, guid: 7abdeebc526154c1e8824051c90573a2,
         type: 3}
-      propertyPath: _type
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 115306799606530215, guid: 7abdeebc526154c1e8824051c90573a2,
-        type: 3}
       propertyPath: _menuService
       value: 
       objectReference: {fileID: 8035216608829462645}
@@ -316,11 +311,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TutorialMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 6854215626029361274, guid: 7abdeebc526154c1e8824051c90573a2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
