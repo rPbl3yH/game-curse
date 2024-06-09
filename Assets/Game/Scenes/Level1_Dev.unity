@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3088,7 +3088,7 @@ PrefabInstance:
     - target: {fileID: 4720289535035749623, guid: f23d89e5422db1d44b263de76a5b79b6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 25.700005
+      value: 30.7
       objectReference: {fileID: 0}
     - target: {fileID: 4720289535035749623, guid: f23d89e5422db1d44b263de76a5b79b6,
         type: 3}
@@ -4513,6 +4513,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawnPoint: {fileID: 644335448}
   _isEmpty: 0
+--- !u!1 &836182308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 836182309}
+  - component: {fileID: 836182310}
+  m_Layer: 0
+  m_Name: "\u0421\u0442\u0440\u0435\u043B\u043A\u0430"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &836182309
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836182308}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.35355458, y: -0.6123718, z: 0.6123718, w: 0.35355458}
+  m_LocalPosition: {x: -0.66, y: 0.57, z: -18.09}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1503532033}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 120}
+--- !u!114 &836182310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836182308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: 894054024ef674f4fb944260ed411433, type: 2}
+  m_DrawDistance: 1000
+  m_FadeScale: 0.9
+  m_StartAngleFade: 180
+  m_EndAngleFade: 180
+  m_UVScale: {x: 1, y: 1}
+  m_UVBias: {x: 0, y: 0}
+  m_DecalLayerMask: 1
+  m_ScaleMode: 0
+  m_Offset: {x: 0, y: 0, z: 0.5}
+  m_Size: {x: 4.03, y: 2.79, z: 1}
+  m_FadeFactor: 1
 --- !u!1001 &859358502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7050,6 +7106,7 @@ Transform:
   - {fileID: 105530444}
   - {fileID: 1332927003}
   - {fileID: 1159554686}
+  - {fileID: 836182309}
   m_Father: {fileID: 1291748299}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1510521965
