@@ -65,12 +65,19 @@ namespace Game.Scripts
             return _sceneLoader.TryLoadScene(Level);
         }
 
+        public void LoadLevel(int index)
+        {
+            Level = index;
+            SaveGame();
+            _sceneLoader.TryLoadScene(Level);
+        }
+
         private void LoadGame()
         {
             _saveLoadManager.Load();
         }
 
-        private void SaveGame()
+        public void SaveGame()
         {
             _saveLoadManager.Save();
         }
