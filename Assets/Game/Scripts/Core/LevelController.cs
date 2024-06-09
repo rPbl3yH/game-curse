@@ -21,6 +21,9 @@ namespace Game.Scripts
 
         [ShowInInspector]
         public int Level { get; set; }
+
+        private static bool _isTutorialView; 
+        
         public event Action LevelLost;
         public event Action LevelStarted;
         public event Action LevelCompleted;
@@ -73,6 +76,12 @@ namespace Game.Scripts
         {
             Debug.Log("Start Game");
             _menuService.HideMenu();
+            if (!_isTutorialView)
+            {
+                _menuService.ShowMenu(MenuType.Tutorial);   
+            }
+            
+            _isTutorialView = true;
             _gameManager.StartGame();
             
             LevelStarted?.Invoke();
