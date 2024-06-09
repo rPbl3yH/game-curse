@@ -265,9 +265,9 @@ MonoBehaviour:
   _catSpawnPoint: {fileID: 4862122913398382995}
   _finishPoint: {fileID: 2361839614576993863}
   boxVariant:
-  - {fileID: 919132149155446097, guid: 8efd68b2cb2f7174eb0ff90038fc97c4, type: 3}
-  - {fileID: 919132149155446097, guid: ed5dd1e37fe439b4e9e403a95791c648, type: 3}
-  - {fileID: 919132149155446097, guid: 2a9190fdf6f1e064c9e22d55bf766ec6, type: 3}
+  - {fileID: 919132149155446097, guid: 2669a9b8249ccbd4bbc19da0ced58c0e, type: 3}
+  - {fileID: 919132149155446097, guid: f9721a130466b4945860042f1b6a6a6b, type: 3}
+  - {fileID: 919132149155446097, guid: a01b708dbd3dc7044858d1353be49bf9, type: 3}
 --- !u!1 &6054005108708195383
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,35 +1,35 @@
 using System;
+using DG.Tweening;
 using Modules.BaseUI;
 using UnityEngine;
-using Zenject;
 
 namespace Game.Scripts.UI
 {
     public class LoseMenu : MenuView
     {
-        [SerializeField] private BaseUIButton _button;
-
-        private LevelController _levelController;
+        [SerializeField] private Transform _content;
+        [SerializeField] private BaseTweenStat _tweenStat;
         
-        [Inject]
-        public void Construct(LevelController levelController)
-        {
-            _levelController = levelController;
-        }
+        private Tween _tween;
         
-        private void OnEnable()
+        public override void Show()
         {
-            _button.Clicked += OnClicked;
+            base.Show();
+            _tween?.Kill();
+            _tween = _content.DOScale(_tweenStat.TargetValue, _tweenStat.Duration)
+                .From(0f)
+                .SetEase(_tweenStat.Easing)
+                .SetLink(_content.gameObject);
         }
 
-        private void OnDisable()
+        public override void Hide()
         {
-            _button.Clicked -= OnClicked;
-        }
-
-        private void OnClicked()
-        {
-            _levelController.Restart();
+            base.Hide();
+            // _tween?.Kill();
+            // _tween = _content.DOScale(0, _tweenStat.Duration)
+            //     .SetEase(_tweenStat.Easing)
+            //     .SetLink(_content.gameObject)
+            //     .OnComplete(base.Hide);
         }
     }
 }

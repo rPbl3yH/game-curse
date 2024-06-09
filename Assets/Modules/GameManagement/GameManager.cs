@@ -9,10 +9,21 @@ namespace Modules.GameManagement
         [ShowInInspector]
         private List<IGameListener> _gameListeners = new();
 
-        private List<IUpdateGameListener> _updateGameListeners = new();
-        private List<IFixedUpdateGameListener> _fixedUpdateGameListeners = new();
-        private List<ILateUpdateGameListener> _lateUpdateGameListeners = new();
-        
+        private readonly List<IUpdateGameListener> _updateGameListeners = new();
+        private readonly List<IFixedUpdateGameListener> _fixedUpdateGameListeners = new();
+        private readonly List<ILateUpdateGameListener> _lateUpdateGameListeners = new();
+
+        public void InitGame()
+        {
+            foreach (var listener in _gameListeners)
+            {
+                if (listener is IGameInitListener initListener)
+                {
+                    initListener.InitGame();
+                }
+            } 
+        }
+
         public void StartGame()
         {
             foreach (var listener in _gameListeners)
@@ -23,7 +34,7 @@ namespace Modules.GameManagement
                 }
             } 
         }
-        
+
         public void FinishGame()
         {
             foreach (var listener in _gameListeners)
@@ -34,7 +45,7 @@ namespace Modules.GameManagement
                 }
             } 
         }
-        
+
         public void PauseGame()
         {
             foreach (var listener in _gameListeners)
@@ -72,7 +83,7 @@ namespace Modules.GameManagement
                 _fixedUpdateGameListeners[i].OnFixedUpdate(fixedDeltaTime);
             }
         }
-    
+
         public void OnLateUpdate(float deltaTime)
         {
             for (int i = 0; i < _fixedUpdateGameListeners.Count; i++)
