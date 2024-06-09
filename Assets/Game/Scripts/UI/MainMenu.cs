@@ -32,13 +32,14 @@ namespace Game.Scripts.UI
         {
             _startGameButton.Clicked -= OnClicked;
             _settingsButton.Clicked -= SettingsButtonOnClicked;
+            _aboutUsButton.Clicked -= ShowAboutAsPanel;
         }
 
         private void SettingsButtonOnClicked() => _menuService.ShowMenu(MenuType.Settings);
 
         private void OnClicked() => _levelController.StartGame();
 
-        private void ShowAboutAsPanel() => _menuService.ShowMenu(MenuType.AboutUs);
+        private void ShowAboutAsPanel() => _menuService.SwitchMenu(MenuType.AboutUs);
 
     }
 }
