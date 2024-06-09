@@ -1,3 +1,4 @@
+using Game.Scripts.UI;
 using Modules.BaseUI;
 using Modules.GameManagement;
 using UnityEngine;
@@ -8,10 +9,12 @@ namespace Game.Scripts
     public class GameContextInstaller : MonoInstaller
     {
         [SerializeField] private GameAudioConfig _gameAudioConfig;
+        [SerializeField] private ItemConfig _itemConfig;
         
         public override void InstallBindings()
         {
             Container.Bind<GameAudioConfig>().FromInstance(_gameAudioConfig).AsSingle().NonLazy();
+            Container.Bind<ItemConfig>().FromInstance(_itemConfig).AsSingle().NonLazy();
             UIInstaller.Install(Container);
 
             Container.Bind<CharacterService>().FromComponentInHierarchy().AsCached().NonLazy();
@@ -32,6 +35,10 @@ namespace Game.Scripts
         public override void InstallBindings()
         {
             Container.Bind<MenuService>().FromComponentInHierarchy().AsCached().NonLazy();
+            Container.BindInterfacesAndSelfTo<MusicSettingPresenter>()
+                .FromComponentInHierarchy().AsCached().NonLazy();
+            Container.BindInterfacesAndSelfTo<SoundSettingPresenter>()
+                .FromComponentInHierarchy().AsCached().NonLazy();
         }
     }
 }
