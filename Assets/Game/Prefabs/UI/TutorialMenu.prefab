@@ -774,7 +774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f14ff5b77f46ed8e5a4ec04e4bdbdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 7
+  _type: 8
   _content: {fileID: 7436764608681903444}
   _fingerView: {fileID: 6865260238452579021}
   _joystickInput: {fileID: 0}

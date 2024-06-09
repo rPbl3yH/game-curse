@@ -48,12 +48,22 @@ namespace Game.Scripts
                 LoadGame();
             }
 
-            if (_sceneLoader.TryLoadScene(Level))
+            if (LoadScene())
             {
                 return;
             }
+            // if (_sceneLoader.TryLoadScene(Level))
+            // {
+            //     return;
+            // }
             
             PrepareGame();
+        }
+
+        [Button]
+        private bool LoadScene()
+        {
+            return _sceneLoader.TryLoadScene(Level);
         }
 
         private void LoadGame()
@@ -111,9 +121,11 @@ namespace Game.Scripts
             _sceneLoader.ReloadScene();
         }
 
+        [Button]
         public void LaunchNextLevel()
         {
             Level++;
+            SaveGame();
             _sceneLoader.TryLoadScene(Level);
         }
     }

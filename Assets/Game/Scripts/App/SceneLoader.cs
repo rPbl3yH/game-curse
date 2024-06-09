@@ -16,6 +16,7 @@ namespace Game.Scripts
             
             if (SceneManager.GetActiveScene().buildIndex != index)
             {
+                Debug.Log("LoadScene");
                 SceneManager.LoadScene(index);
                 return true;
             }
