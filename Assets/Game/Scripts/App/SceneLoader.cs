@@ -7,14 +7,14 @@ namespace Game.Scripts
     {
         public bool TryLoadScene(int index)
         {
+            if (index >= SceneManager.sceneCountInBuildSettings)
+            {
+                Debug.Log("Scene doesn't exist");
+                return false;
+            }
+            
             if (SceneManager.GetActiveScene().buildIndex != index)
             {
-                if (index >= SceneManager.sceneCountInBuildSettings)
-                {
-                    Debug.Log("Scene doesn't exist");
-                    return false;
-                }
-                
                 Debug.Log("LoadScene");
                 SceneManager.LoadScene(index);
                 return true;

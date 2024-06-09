@@ -18,8 +18,7 @@ namespace Game.Scripts
         private SaveLoadManager _saveLoadManager;
         private SceneLoader _sceneLoader = new();
 
-        [ShowInInspector]
-        public int Level { get; set; }
+        [ShowInInspector] public static int Level;
 
         [SerializeField]
         private bool _isLoad = true;
