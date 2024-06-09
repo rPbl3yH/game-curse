@@ -7,7 +7,7 @@ namespace Game.Scripts.UI
 {
     public class TutorialMenu : MenuView
     {
-        [SerializeField] private Transform _content;
+        [SerializeField] private CanvasGroup _content;
         [SerializeField] private TutorialFingerView _fingerView;
         [SerializeField] private JoystickInput _joystickInput;
         [SerializeField] private MenuService _menuService;
@@ -21,13 +21,15 @@ namespace Game.Scripts.UI
         {
             base.Show();
             _tween?.Kill();
-            _tween = _content.DOScale(_tweenStat.TargetValue, _tweenStat.Duration)
+            _content.alpha = 1f;
+            _tween = _content.transform.DOScale(_tweenStat.TargetValue, _tweenStat.Duration)
                 .From(0f)
                 .SetEase(_tweenStat.Easing)
                 .SetLink(_content.gameObject);
             
             _fingerView.Show();
             _joystickInput.DirectionMoved += OnDirectionMoved;
+            
         }
 
         private void OnDirectionMoved(Vector2 direction)
@@ -39,7 +41,7 @@ namespace Game.Scripts.UI
         public override void Hide()
         {
             _tween?.Kill();
-            _tween = _content.DOScale(0f, _tweenStat.Duration)
+            _tween = _content.DOFade(0f, _tweenStat.Duration)
                 .SetEase(_tweenStat.Easing)
                 .SetLink(_content.gameObject)
                 .OnComplete(() => base.Hide());
