@@ -21,6 +21,9 @@ namespace Game.Scripts
         [ShowInInspector]
         public int Level { get; set; }
 
+        [SerializeField]
+        private bool _isLoad = true;
+
         private static bool _isTutorialView; 
         
         public event Action LevelLost;
@@ -40,7 +43,10 @@ namespace Game.Scripts
 
         private void Start()
         {
-            LoadGame();
+            if (_isLoad)
+            {
+                LoadGame();
+            }
 
             if (_sceneLoader.TryLoadScene(Level))
             {

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: "Assets/Models/LexPro/\u0423\u0440\u043E\u0432\u0435\u043D\u044C2.unity"
-    guid: b01a9b1505e3c2941985ecd145021160
+    path: Assets/Game/Scenes/Level1_Dev.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Game/Scenes/Level2_Dev.unity
+    guid: 901cfc4d4dfb24c0fa2972e05f1b0cb4
   m_configObjects: {}
