@@ -49,11 +49,13 @@ namespace Game.Scripts.Gameplay.Wall
             }
         }
         
+#if UNITY_EDITOR
         private void OnDrawGizmosSelected()
         {
             Handles.color = Color.black;
             var size = new Vector3(_rectangleSize.x, 0.01f, _rectangleSize.y);
             Handles.DrawWireCube(_centerPoint.position, size);
         }
+#endif
     }
 }

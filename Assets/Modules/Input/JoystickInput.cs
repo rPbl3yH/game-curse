@@ -70,13 +70,13 @@ namespace Modules.Input
 #else
         private void UpdateTouch()
         {
-            var touchCount = Input.touchCount;
+            var touchCount = UnityEngine.Input.touchCount;
             if (touchCount < 1)
             {
                 return;
             }
 
-            var touch = Input.GetTouch(0);
+            var touch = UnityEngine.Input.GetTouch(0);
             var touchPhase = touch.phase;
             if (touchPhase == TouchPhase.Began && !IsPointerOverGameObject(touch.fingerId))
             {
